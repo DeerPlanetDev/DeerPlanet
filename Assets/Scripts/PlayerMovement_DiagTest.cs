@@ -5,7 +5,6 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement_DiagTest : MonoBehaviour
 {
-/*
     public float moveSpeed = 3.5f;
     public Transform movePoint;
     public LayerMask stopsMove;
@@ -16,7 +15,6 @@ public class PlayerMovement_DiagTest : MonoBehaviour
     private float memoryV;
 
     private Rigidbody2D body;
-    public Joystick joystick;
 
     // Start is called before the first frame update
     void Start()
@@ -119,45 +117,5 @@ public class PlayerMovement_DiagTest : MonoBehaviour
         moveSpeed = moveSpeed - speedReduction;
         yield return new WaitForSeconds(2);
         moveSpeed = moveSpeed + speedReduction;
-    }*/
-    public float MovementSpeed = 2;
-    private SpriteRenderer sprite;
-    public Animator animator;
-    private Rigidbody2D body;
-    public Joystick joystick;   
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-        body = GetComponent<Rigidbody2D>();
-    }
-    // Update is called once per frame
-    private void Update()
-    {
-        // Test
-        var movement_h = joystick.Horizontal * MovementSpeed;
-        animator.SetFloat("Horizontal", movement_h);
-        var movement_v = joystick.Vertical * MovementSpeed;
-        animator.SetFloat("Vertical", movement_v);
-        
-        transform.position += new Vector3(movement_h,movement_v,0) * Time.deltaTime * MovementSpeed;
-
-        /*if (movement_h < 0) 
-        {
-            sprite.flipX = true;
-        }
-        else if (movement_h > 0)
-        {
-            sprite.flipX = false;
-        }*/
-        
-        if(movement_h != 0 && movement_v != 0)
-        {
-            animator.SetFloat("Speed", transform.position.sqrMagnitude);
-        }
-        else{
-            animator.SetFloat("Speed", 0f);
-        }
     }
 }
