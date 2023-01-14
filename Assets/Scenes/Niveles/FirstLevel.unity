@@ -1171,7 +1171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &261480218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29050,7 +29049,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &307983182
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29630,7 +29628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &446929931
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32435,6 +32432,7 @@ GameObject:
   - component: {fileID: 882523630}
   - component: {fileID: 882523629}
   - component: {fileID: 882523634}
+  - component: {fileID: 882523635}
   m_Layer: 0
   m_Name: Sprite Renderer
   m_TagString: Player
@@ -32452,7 +32450,7 @@ Animator:
   m_GameObject: {fileID: 882523627}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5b880b168e84314397b3dface5ea655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 98f37feaedeaa55498a8a62937ed2423, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32582,9 +32580,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882523627}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eefcccefe590cd4d947f1dadc525dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3.5
+  movePoint: {fileID: 2141948973}
+  stopsMove:
+    serializedVersion: 2
+    m_Bits: 256
+  sprite: {fileID: 882523633}
+  animator: {fileID: 882523628}
+--- !u!114 &882523635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882523627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc846832d2d9dd54d85aa96c1272bf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.5
@@ -34398,7 +34415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &1279381087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34766,7 +34782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &1361860629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35821,7 +35836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdbc3541aa8f44a807066bc214d7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinValue: 3
 --- !u!212 &1602202358
 SpriteRenderer:
   m_ObjectHideFlags: 0
