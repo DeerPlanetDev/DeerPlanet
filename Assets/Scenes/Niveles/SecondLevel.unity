@@ -32246,6 +32246,7 @@ GameObject:
   - component: {fileID: 1645281379}
   - component: {fileID: 1645281378}
   - component: {fileID: 1645281377}
+  - component: {fileID: 1645281383}
   m_Layer: 0
   m_Name: Sprite Renderer
   m_TagString: Player
@@ -32263,7 +32264,7 @@ Animator:
   m_GameObject: {fileID: 1645281375}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d5b880b168e84314397b3dface5ea655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 98f37feaedeaa55498a8a62937ed2423, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32279,7 +32280,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645281375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eefcccefe590cd4d947f1dadc525dc1, type: 3}
   m_Name: 
@@ -32405,6 +32406,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1645281383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645281375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc846832d2d9dd54d85aa96c1272bf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3.5
+  movePoint: {fileID: 67261623}
+  stopsMove:
+    serializedVersion: 2
+    m_Bits: 256
+  sprite: {fileID: 1645281382}
+  animator: {fileID: 1645281376}
 --- !u!1 &1654362360
 GameObject:
   m_ObjectHideFlags: 0
