@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 199326412}
   - component: {fileID: 199326413}
   - component: {fileID: 199326411}
+  - component: {fileID: 199326414}
   m_Layer: 0
   m_Name: Sprite Renderer
   m_TagString: Player
@@ -336,6 +337,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   sprite: {fileID: 199326410}
+  animator: {fileID: 199326405}
+--- !u!114 &199326414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199326404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75655341afbe674c901b5ee48e98b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   animator: {fileID: 199326405}
 --- !u!1 &283229501
 GameObject:

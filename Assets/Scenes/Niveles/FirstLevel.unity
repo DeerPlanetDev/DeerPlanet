@@ -32988,6 +32988,7 @@ MonoBehaviour:
   timeOut: {fileID: 384129266}
   levelNum: 1
   BPText: {fileID: 1290324733}
+  animator: {fileID: 882523628}
 --- !u!1 &1001763962
 GameObject:
   m_ObjectHideFlags: 0

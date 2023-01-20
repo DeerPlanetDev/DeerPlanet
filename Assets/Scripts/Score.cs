@@ -30,6 +30,8 @@ public class Score : MonoBehaviour
 
     public Text BPText;
 
+    public Animator animator;
+
     private void Awake() 
     {
         instance = this;
@@ -103,7 +105,8 @@ public class Score : MonoBehaviour
         {
             // Debug.Log("Hola");
             h.SetActive(true);
-            player.SetActive(false);
+            //player.SetActive(false);
+            animator.SetBool("Win", true);
             stopTimer();
 
             PlayerPrefs.SetInt("Lv" + levelNum, 3);
