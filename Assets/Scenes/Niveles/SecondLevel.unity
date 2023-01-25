@@ -1232,6 +1232,9 @@ MonoBehaviour:
   timeOut: {fileID: 70383270}
   levelNum: 2
   BPText: {fileID: 138810443}
+  animator: {fileID: 1645281376}
+  collider: {fileID: 1645281378}
+  UI: {fileID: 1430659010}
 --- !u!114 &194068277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4488,7 +4491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c6ce81cc993aa3941986f3dcc17e371c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3606ab35fe245a34387ce0f19103039c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -6,55 +6,25 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c71190012142f3f6715352e261337cee5223deea923e7ee2e26
+      value: 22424703114646680e0b0227036c71190012142f3f6700393f3a091fe7f63134acf238e0f323
       flags: 0
     RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c71190012142f3f67003f383b093bcee5223deea923e7ee2e26
       flags: 0
     RecentlyUsedScenePath-2:
-<<<<<<< HEAD
-      value: 22424703114646680e0b0227036c71190012142f3f6700392b3d151fe7f63134acf238e0f323
-=======
       value: 22424703114646680e0b0227036c71190012142f3f671238243b191fe7f63134acf238e0f323
->>>>>>> parent of ba16dfe4 (Animaciones de daño)
       flags: 0
     RecentlyUsedScenePath-3:
       value: 22424703114646680e0b0227036c71190012142f3f6715352e261337cee5223deea923e7ee2e26
       flags: 0
     RecentlyUsedScenePath-4:
-      value: 22424703114646680e0b0227036c6c151a121b292527281e243f183fe7f37a2decee22f0
-      flags: 0
-    RecentlyUsedScenePath-5:
-<<<<<<< HEAD
-      value: 22424703114646680e0b0227036c721f0012563f22213229
-      flags: 0
-    RecentlyUsedScenePath-6:
-      value: 22424703114646680e0b0227036c72111f19352f223d68252320092a
-      flags: 0
-    RecentlyUsedScenePath-7:
-      value: 22424703114646680e0b0227036c7b1500590d24253c3f
-=======
       value: 22424703114646680e0b0227036c71190012142f3f6700392b3d151fe7f63134acf238e0f323
       flags: 0
-    RecentlyUsedScenePath-6:
+    RecentlyUsedScenePath-5:
       value: 22424703114646680e0b0227036c71190012142f3f671539353d151fe7f63134acf238e0f323
->>>>>>> parent of ba16dfe4 (Animaciones de daño)
       flags: 0
-    RecentlyUsedScenePath-7:
+    RecentlyUsedScenePath-6:
       value: 22424703114646680e0b0227036c71190012142f3f6715353b2c1327eacc312ee7eb78fce9332b25
-      flags: 0
-    RecentlyUsedScenePath-8:
-<<<<<<< HEAD
-      value: 22424703114646680e0b0227036c7e1a03040c2f3f66333e243d04
-      flags: 0
-    RecentlyUsedScenePath-9:
-      value: 22424703114646680e0b0227036c731500121419292423333920123dacf53a31f6fe
-=======
-      value: 22424703114646680e0b0227036c721f0012563f22213229
-      flags: 0
-    RecentlyUsedScenePath-9:
-      value: 22424703114646680e0b0227036c71190012142f3f6700393f3a091fe7f63134acf238e0f323
->>>>>>> parent of ba16dfe4 (Animaciones de daño)
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

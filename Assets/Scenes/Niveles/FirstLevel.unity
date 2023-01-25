@@ -32989,6 +32989,8 @@ MonoBehaviour:
   levelNum: 1
   BPText: {fileID: 1290324733}
   animator: {fileID: 882523628}
+  collider: {fileID: 882523629}
+  UI: {fileID: 2062093448}
 --- !u!1 &1001763962
 GameObject:
   m_ObjectHideFlags: 0
@@ -34327,7 +34329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c6ce81cc993aa3941986f3dcc17e371c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3606ab35fe245a34387ce0f19103039c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -14,6 +14,8 @@ public class VidaJugador : MonoBehaviour
 
     public GameObject death;
 
+    static public bool life = true;
+
 
     private void Awake()
     {
@@ -31,6 +33,7 @@ public class VidaJugador : MonoBehaviour
         barraDeVida.CambiarVidaActual(vida);
         if(vida <= 0)
         {
+            life = false;
             Destroy(gameObject);
             death.SetActive(true);
         }
@@ -49,5 +52,6 @@ public class VidaJugador : MonoBehaviour
             barraDeVida.CambiarVidaActual(vida);
         }
     }
+
 }
 

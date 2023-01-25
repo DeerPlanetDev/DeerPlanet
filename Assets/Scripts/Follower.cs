@@ -15,7 +15,18 @@ public class Follower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.position.x, target.position.y, -10);
+        //bool flag = VidaJugador.life;
+        bool flag = true;
+        if (flag)
+        {
+            transform.position = new Vector3(target.position.x, target.position.y, -10);
+        }
+        else
+        {
+            Debug.Log(flag);
+            Debug.Log("U ded m8");
+        }
+        
     }
 }
 

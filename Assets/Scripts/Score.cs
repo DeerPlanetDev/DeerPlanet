@@ -32,6 +32,12 @@ public class Score : MonoBehaviour
 
     public Animator animator;
 
+    public CircleCollider2D collider;
+
+    public GameObject UI;
+
+    //public Gameobject canvas;
+
     private void Awake() 
     {
         instance = this;
@@ -104,6 +110,8 @@ public class Score : MonoBehaviour
         if (total == 1)
         {
             // Debug.Log("Hola");
+            collider.enabled = false;
+            UI.SetActive(false);
             h.SetActive(true);
             //player.SetActive(false);
             animator.SetBool("Win", true);
