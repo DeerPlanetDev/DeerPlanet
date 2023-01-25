@@ -8,6 +8,7 @@ C# parse time         : 788ms
 candidates check time : 74ms
 console write time    : 10ms
 
+<<<<<<< HEAD
 [api-updater (non-obsolete-error-filter)] 21/01/2023 01:21:23 a. m. : Starting C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
 [api-updater (non-obsolete-error-filter)] 
 ----------------------------------
@@ -18,3 +19,5 @@ C# parse time         : 580ms
 candidates check time : 28ms
 console write time    : 1ms
 
+=======
+>>>>>>> parent of ba16dfe4 (Animaciones de daño)
