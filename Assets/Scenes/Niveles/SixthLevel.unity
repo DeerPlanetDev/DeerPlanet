@@ -4092,8 +4092,8 @@ RectTransform:
   - {fileID: 470479400}
   - {fileID: 232928675}
   - {fileID: 356104094}
-  - {fileID: 1192704298}
   - {fileID: 2089945852}
+  - {fileID: 1192704298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30965,7 +30965,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1538706749412986593, guid: 3ade4f14440b99c4db9fdcc1aa97d6db, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5950577504586856852, guid: 3ade4f14440b99c4db9fdcc1aa97d6db, type: 3}
       propertyPath: m_Pivot.x
@@ -33670,7 +33670,7 @@ MonoBehaviour:
   text: {fileID: 1075440012}
   now: {fileID: 207023184}
   timeOut: {fileID: 470479399}
-  levelNum: 0
+  levelNum: 6
   BPText: {fileID: 865890715}
   animator: {fileID: 579353075}
   collider: {fileID: 579353077}
@@ -36571,7 +36571,7 @@ RectTransform:
   - {fileID: 1751081888}
   - {fileID: 207023185}
   m_Father: {fileID: 654932337}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Reinicio_Niveles : MonoBehaviour
 {
@@ -16,11 +18,15 @@ public class Reinicio_Niveles : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             Debug.Log("Reinició el juego");
+            Reinicio();
+            SceneManager.LoadScene("LevelSelection");
         }
     }
 
     public void Reinicio()
     {
-        
+        for(int i = 0; i < 7; i++){
+            PlayerPrefs.SetInt("Lv" + i, 0);
+        }
     }
 }
