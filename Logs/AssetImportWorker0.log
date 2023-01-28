@@ -331,3 +331,27 @@ Received Import Request.
 Start importing Assets/Scenes/Ajustes.unity using Guid(a1e15ba676b70864d8a8170a66456fde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8854ecd279fd342b98a5cfa925007ee5') in 0.002793 seconds 
   Import took 0.006432 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 569.618474 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.002323 seconds 
+  Import took 0.007434 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.360086 seconds.
+  path: Assets/AudioEfectos
+  artifactKey: Guid(516e0514ab2a97b4884f2f8b3a8ede8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AudioEfectos using Guid(516e0514ab2a97b4884f2f8b3a8ede8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '808ac61dd5bedef5934ce1ea6a50e0d2') in 0.002116 seconds 
+  Import took 0.005615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.598941 seconds.
+  path: Assets/AudioEfectos/616542__josheb-policarpio__retro-video-game-sound-effect-long-version.wav
+  artifactKey: Guid(0faaeae98199b0440a470e23eabe14fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AudioEfectos/616542__josheb-policarpio__retro-video-game-sound-effect-long-version.wav using Guid(0faaeae98199b0440a470e23eabe14fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc7442b03cdd5507efad6437180f4bb0') in 0.023325 seconds 
+  Import took 0.026802 seconds .
+
