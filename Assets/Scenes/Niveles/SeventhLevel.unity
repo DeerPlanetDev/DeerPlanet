@@ -2337,7 +2337,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 215915822}
         m_TargetAssemblyTypeName: SceneCtrl, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: Level8
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

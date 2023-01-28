@@ -85,6 +85,18 @@ public class SceneCtrl : MonoBehaviour
         player.Play();
         SceneManager.LoadScene("SeventhLevel");
     }
+    public void Level8()
+    {
+        player.clip = track.music[0];
+        player.Play();
+        SceneManager.LoadScene("EightLevel");
+    }
+    public void Level9()
+    {
+        player.clip = track.music[0];
+        player.Play();
+        SceneManager.LoadScene("NinthLevel");
+    }
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
