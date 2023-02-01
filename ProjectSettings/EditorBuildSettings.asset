@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Niveles/SecondLevel.unity
     guid: 4a9228d795dc2b7448b87b4ae8bc09ed
   - enabled: 0
-    path: Assets/Scenes/Trial.unity
+    path: 
     guid: 6f3e6c966c3149149ad82d28e409bf6e
   - enabled: 0
     path: Assets/Scenes/Move.unity
@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSelection.unity
     guid: cf58bb658bcd00c41a4ce8b76951b554
+  - enabled: 1
+    path: Assets/Scenes/Niveles/EightLevel.unity
+    guid: 453d07d95079a6146a513dd8e80ab259
   m_configObjects: {}
