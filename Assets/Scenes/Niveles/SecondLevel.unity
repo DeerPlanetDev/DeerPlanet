@@ -1225,8 +1225,10 @@ MonoBehaviour:
   player: {fileID: 43029300}
   collectibles: {fileID: 1686080433}
   collectibles2: {fileID: 1492126081}
+  MaxBioPlastics: 6
   timeText: {fileID: 606867995}
   startMinutes: 2
+  stars_Time: 55
   text: {fileID: 606867994}
   now: {fileID: 124407306}
   timeOut: {fileID: 70383270}

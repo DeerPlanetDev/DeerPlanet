@@ -30,4 +30,9 @@ public class StarCollection : MonoBehaviour
         Debug.Log("Estrellas: " + Total_Stars1.ToString());
         Star_Number.text = (""+Total_Stars1.ToString());
     }
+
+    public int getEstrellas(int Nivel){
+        int Estrellas = PlayerPrefs.GetInt("Lv" + Nivel);
+        return Estrellas;
+    }
 }
