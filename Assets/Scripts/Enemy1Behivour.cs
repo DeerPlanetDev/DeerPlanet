@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy1Behivour : MonoBehaviour
 {
-    [SerializeField] private FieldOfView fieldOfView;
     //Parameters
     public float moveSpeed = 3f;
     public float limitOfYPos = 2.5f;
@@ -16,23 +15,16 @@ public class Enemy1Behivour : MonoBehaviour
     private int control = 0;
     //Animator
     public Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-         
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(fieldOfView.stone==true){
-            moveSpeed=0f;
-        }
-        else{
-            moveSpeed=3f;
-        }
         if(typeOfMovement == "Vertical")
         {
             verticalMove();
@@ -42,7 +34,6 @@ public class Enemy1Behivour : MonoBehaviour
         {
             horizontalMove();                        
         }
-      
 
     }
 
@@ -104,7 +95,6 @@ public class Enemy1Behivour : MonoBehaviour
                 control = 0;
             }  
         }
-       
     }
- }
+}
 
