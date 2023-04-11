@@ -105,6 +105,6 @@ public class Enemy1Behivour : MonoBehaviour
             }  
         }
        
- }
     }
+ }
 
