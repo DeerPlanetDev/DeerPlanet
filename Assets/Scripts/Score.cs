@@ -14,7 +14,6 @@ public class Score : MonoBehaviour
     public GameObject collectibles2;
     int score = 0;
     int bioPlastics = 0;
-    public int MaxBioPlastics = 0;
     int total;
 
     //Timer values
@@ -22,7 +21,6 @@ public class Score : MonoBehaviour
     public Text timeText;
     float currentTime;
     public int startMinutes;
-    public int stars_Time;
 
     public GameObject text;
     public GameObject now;
@@ -118,13 +116,8 @@ public class Score : MonoBehaviour
             //player.SetActive(false);
             animator.SetBool("Win", true);
             stopTimer();
-            if(currentTime>stars_Time && bioPlastics == MaxBioPlastics){
-                PlayerPrefs.SetInt("Lv" + levelNum, 3);
-            }else if(bioPlastics == MaxBioPlastics){
-                PlayerPrefs.SetInt("Lv" + levelNum, 2);
-            }else{
-                PlayerPrefs.SetInt("Lv" + levelNum, 1);
-            }
+
+            PlayerPrefs.SetInt("Lv" + levelNum, 3);
             Debug.Log(PlayerPrefs.GetInt("Lv" + levelNum));
 
             // PopUpSystem pop = GameObject.FindGameObjectWithTag("GameController").GetComponent<PopUpSystem>();
