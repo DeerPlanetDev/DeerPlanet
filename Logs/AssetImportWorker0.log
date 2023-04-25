@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.28f1 (f5400f52e03f) revision 16072719'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 11  (10.0.22621) 64bit CoreSingleLanguage' Language: 'es' Physical Memory: 8033 MB
+OS: 'Windows 10  (10.0.19044) 64bit CoreSingleLanguage' Language: 'es' Physical Memory: 16270 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,146 +11,146 @@ C:\Program Files\Unity\Hub\Editor\2020.3.28f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/alan6/OneDrive/Documents/GitHub/DeerPlanet
+C:/Users/Chucho/Downloads/Installers/DP/DeerPlanet
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60148
-Successfully changed project path to: C:/Users/alan6/OneDrive/Documents/GitHub/DeerPlanet
-C:/Users/alan6/OneDrive/Documents/GitHub/DeerPlanet
+55213
+Successfully changed project path to: C:/Users/Chucho/Downloads/Installers/DP/DeerPlanet
+C:/Users/Chucho/Downloads/Installers/DP/DeerPlanet
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 222.92 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 175.40 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.28f1 (f5400f52e03f)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/alan6/OneDrive/Documents/GitHub/DeerPlanet/Assets
+[Subsystems] Discovering subsystems at path C:/Users/Chucho/Downloads/Installers/DP/DeerPlanet/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce 930MX (ID=0x134e)
     Vendor:   
-    VRAM:     4019 MB
-    Driver:   30.0.15.1278
+    VRAM:     2010 MB
+    Driver:   30.0.15.1295
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56352
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.28f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004143 seconds.
+Registered in 0.003425 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 69.35 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 89.55 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.895 seconds
+- Completed reload, in  1.410 seconds
 Domain Reload Profiling:
-	ReloadAssembly (895ms)
-		BeginReloadAssembly (137ms)
+	ReloadAssembly (1410ms)
+		BeginReloadAssembly (129ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (662ms)
-			LoadAssemblies (134ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (1134ms)
+			LoadAssemblies (124ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (223ms)
+			SetupTypeCache (360ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (241ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (513ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (69ms)
-				BeforeProcessingInitializeOnLoad (7ms)
-				ProcessInitializeOnLoadAttributes (125ms)
-				ProcessInitializeOnLoadMethodAttributes (35ms)
+				RefreshPlugins (90ms)
+				BeforeProcessingInitializeOnLoad (22ms)
+				ProcessInitializeOnLoadAttributes (285ms)
+				ProcessInitializeOnLoadMethodAttributes (108ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009040 seconds.
+Registered in 0.011242 seconds.
 Begin MonoManager ReloadAssembly
 Error: Could not load signature of iOSNotificationPostProcessor:ShouldAddSettingToPlist due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff6150aab2c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff6150b1f29 (Unity) StackWalker::ShowCallstack
-0x00007ff615e1103c (Unity) GetStacktrace
-0x00007ff61685b2a3 (Unity) DebugStringToFile
-0x00007ff614f9c5db (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff614fc26b3 (Unity) MonoManager::SetupTypeCache
-0x00007ff614fb8be3 (Unity) MonoManager::EndReloadAssembly
-0x00007ff614fc0057 (Unity) MonoManager::ReloadAssembly
-0x00007ff615cc0e41 (Unity) LoadDomainAndUserAssemblies
-0x00007ff615cc14a9 (Unity) LoadUserAssemblies
-0x00007ff6159c5b44 (Unity) Application::InitializeProject
-0x00007ff615e1b4f2 (Unity) WinMain
-0x00007ff6174abd4e (Unity) __scrt_common_main_seh
-0x00007ffde20f26bd (KERNEL32) BaseThreadInitThunk
-0x00007ffde370dfb8 (ntdll) RtlUserThreadStart
+0x00007ff7f297ab2c (Unity) StackWalker::GetCurrentCallstack
+0x00007ff7f2981f29 (Unity) StackWalker::ShowCallstack
+0x00007ff7f36e103c (Unity) GetStacktrace
+0x00007ff7f412b2a3 (Unity) DebugStringToFile
+0x00007ff7f286c5db (Unity) ScanForAttributesAndInterfaceImplementations
+0x00007ff7f28926b3 (Unity) MonoManager::SetupTypeCache
+0x00007ff7f2888be3 (Unity) MonoManager::EndReloadAssembly
+0x00007ff7f2890057 (Unity) MonoManager::ReloadAssembly
+0x00007ff7f3590e41 (Unity) LoadDomainAndUserAssemblies
+0x00007ff7f35914a9 (Unity) LoadUserAssemblies
+0x00007ff7f3295b44 (Unity) Application::InitializeProject
+0x00007ff7f36eb4f2 (Unity) WinMain
+0x00007ff7f4d7bd4e (Unity) __scrt_common_main_seh
+0x00007ffb37967604 (KERNEL32) BaseThreadInitThunk
+0x00007ffb37f026a1 (ntdll) RtlUserThreadStart
 
 Unloading broken assembly Library/ScriptAssemblies/Unity.Notifications.dll, this assembly can cause crashes in the runtime
-0x00007ff6150aab2c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff6150b1f29 (Unity) StackWalker::ShowCallstack
-0x00007ff615e1103c (Unity) GetStacktrace
-0x00007ff61685b2a3 (Unity) DebugStringToFile
-0x00007ff614fc1e95 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff614fb8f71 (Unity) MonoManager::EndReloadAssembly
-0x00007ff614fc0057 (Unity) MonoManager::ReloadAssembly
-0x00007ff615cc0e41 (Unity) LoadDomainAndUserAssemblies
-0x00007ff615cc14a9 (Unity) LoadUserAssemblies
-0x00007ff6159c5b44 (Unity) Application::InitializeProject
-0x00007ff615e1b4f2 (Unity) WinMain
-0x00007ff6174abd4e (Unity) __scrt_common_main_seh
-0x00007ffde20f26bd (KERNEL32) BaseThreadInitThunk
-0x00007ffde370dfb8 (ntdll) RtlUserThreadStart
+0x00007ff7f297ab2c (Unity) StackWalker::GetCurrentCallstack
+0x00007ff7f2981f29 (Unity) StackWalker::ShowCallstack
+0x00007ff7f36e103c (Unity) GetStacktrace
+0x00007ff7f412b2a3 (Unity) DebugStringToFile
+0x00007ff7f2891e95 (Unity) MonoManager::SetupLoadedEditorAssemblies
+0x00007ff7f2888f71 (Unity) MonoManager::EndReloadAssembly
+0x00007ff7f2890057 (Unity) MonoManager::ReloadAssembly
+0x00007ff7f3590e41 (Unity) LoadDomainAndUserAssemblies
+0x00007ff7f35914a9 (Unity) LoadUserAssemblies
+0x00007ff7f3295b44 (Unity) Application::InitializeProject
+0x00007ff7f36eb4f2 (Unity) WinMain
+0x00007ff7f4d7bd4e (Unity) __scrt_common_main_seh
+0x00007ffb37967604 (KERNEL32) BaseThreadInitThunk
+0x00007ffb37f026a1 (ntdll) RtlUserThreadStart
 
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 74.04 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 178.90 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.331 seconds
+- Completed reload, in  8.636 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2332ms)
-		BeginReloadAssembly (208ms)
+	ReloadAssembly (8637ms)
+		BeginReloadAssembly (240ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (21ms)
-		EndReloadAssembly (2047ms)
-			LoadAssemblies (185ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (8285ms)
+			LoadAssemblies (195ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1069ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (65ms)
-			SetupLoadedEditorAssemblies (577ms)
-				LogAssemblyErrors (2ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (74ms)
-				BeforeProcessingInitializeOnLoad (93ms)
-				ProcessInitializeOnLoadAttributes (371ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
-				AfterProcessingInitializeOnLoad (14ms)
-				EditorAssembliesLoaded (1ms)
+			SetupTypeCache (6301ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (184ms)
+			SetupLoadedEditorAssemblies (1304ms)
+				LogAssemblyErrors (4ms)
+				InitializePlatformSupportModulesInManaged (26ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (179ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (924ms)
+				ProcessInitializeOnLoadMethodAttributes (48ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (15ms)
+			AwakeInstancesAfterBackupRestoration (41ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 1.24 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 1.21 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2422 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 106.5 MB.
-System memory in use after: 106.7 MB.
+System memory in use before: 106.4 MB.
+System memory in use after: 106.6 MB.
 
-Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2846.
-Total: 7.388600 ms (FindLiveObjects: 0.351100 ms CreateObjectMapping: 0.195600 ms MarkObjects: 6.607600 ms  DeleteObjects: 0.232800 ms)
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 2845.
+Total: 6.220500 ms (FindLiveObjects: 0.265600 ms CreateObjectMapping: 0.360800 ms MarkObjects: 5.476400 ms  DeleteObjects: 0.115700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -159,148 +159,102 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/Niveles/EightLevel.unity
-  artifactKey: Guid(453d07d95079a6146a513dd8e80ab259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Niveles/EightLevel.unity using Guid(453d07d95079a6146a513dd8e80ab259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c026fcb704a7424dbd17ff07107fc0d2') in 0.027047 seconds 
-  Import took 0.031961 seconds .
+  path: Assets/Standard Assets/CrossPlatformInput/Sprites/ButtonTimescaleFullUpSprite.png
+  artifactKey: Guid(0c6271a290ef75b4c97d58746c86c5b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Standard Assets/CrossPlatformInput/Sprites/ButtonTimescaleFullUpSprite.png using Guid(0c6271a290ef75b4c97d58746c86c5b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d52d6e62a6a4ec77740691794bc35b1') in 0.285762 seconds 
+  Import took 0.294812 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 30.112622 seconds.
+  Time since last request: 0.000367 seconds.
+  path: Assets/Standard Assets/CrossPlatformInput/Sprites/ButtonTimescaleSlowUpSprite.png
+  artifactKey: Guid(9d7c6e4896067aa4fa512a00f692ac1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Standard Assets/CrossPlatformInput/Sprites/ButtonTimescaleSlowUpSprite.png using Guid(9d7c6e4896067aa4fa512a00f692ac1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bd9a1ff5bbb89474ba6ddd37731a549') in 0.047056 seconds 
+  Import took 0.053469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Scripts/SceneCtrl.cs
+  artifactKey: Guid(27d88b0bf9818324aa0929131e0632ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SceneCtrl.cs using Guid(27d88b0bf9818324aa0929131e0632ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c6c2fd81b6b92871bc1cd2b3f3e85bf') in 0.190833 seconds 
+  Import took 0.200760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000305 seconds.
+  path: Assets/Sprites/Inicio screen.jpeg
+  artifactKey: Guid(1e80f923a1b5d354aa2d5af1a2d4cf01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Inicio screen.jpeg using Guid(1e80f923a1b5d354aa2d5af1a2d4cf01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '494ad455df684760acb224db050ee749') in 0.108441 seconds 
+  Import took 0.115415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.190625 seconds.
   path: Assets/Scenes/Niveles/NinthLevel.unity
   artifactKey: Guid(d363111b7d239dc4383be107bf0ddd57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Niveles/NinthLevel.unity using Guid(d363111b7d239dc4383be107bf0ddd57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a431b5d1b2be4e25d30ed4544c0379fb') in 0.028233 seconds 
-  Import took 0.044716 seconds .
+Start importing Assets/Scenes/Niveles/NinthLevel.unity using Guid(d363111b7d239dc4383be107bf0ddd57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '291a4f552ab07e997213d9b344ed929c') in 0.019439 seconds 
+  Import took 0.029158 seconds .
 
 ========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 8.68 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 25 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 57.5 MB.
-System memory in use after: 57.8 MB.
+Received Import Request.
+  Time since last request: 8.813388 seconds.
+  path: Assets/Button.png
+  artifactKey: Guid(a6eab676f02ae5e44af7c7dbe0e6170f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Button.png using Guid(a6eab676f02ae5e44af7c7dbe0e6170f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3634c1f2057619648446dec2176262a') in 0.052660 seconds 
+  Import took 0.060823 seconds .
 
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 2846.
-Total: 4.121100 ms (FindLiveObjects: 0.212000 ms CreateObjectMapping: 0.090300 ms MarkObjects: 3.800900 ms  DeleteObjects: 0.017100 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.016101 seconds.
-Begin MonoManager ReloadAssembly
-Error: Could not load signature of iOSNotificationPostProcessor:ShouldAddSettingToPlist due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-0x00007ff6150aab2c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff6150b1f29 (Unity) StackWalker::ShowCallstack
-0x00007ff615e1103c (Unity) GetStacktrace
-0x00007ff61685b2a3 (Unity) DebugStringToFile
-0x00007ff614f9c5db (Unity) ScanForAttributesAndInterfaceImplementations
-0x00007ff614fc26b3 (Unity) MonoManager::SetupTypeCache
-0x00007ff614fb8be3 (Unity) MonoManager::EndReloadAssembly
-0x00007ff614fc0057 (Unity) MonoManager::ReloadAssembly
-0x00007ff615cc0e41 (Unity) LoadDomainAndUserAssemblies
-0x00007ff615cc14a9 (Unity) LoadUserAssemblies
-0x00007ff615ef7118 (Unity) <lambda_b7fd2194c9d98d5c5f8d87939b09ad6c>::operator()
-0x00007ff615f7e2f2 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff615f80450 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff615f83bce (Unity) asio::io_service::run
-0x00007ff615f1f8db (Unity) RunAssetImportWorkerClientV2
-0x00007ff615f1f930 (Unity) RunAssetImporterV2
-0x00007ff6159c5b49 (Unity) Application::InitializeProject
-0x00007ff615e1b4f2 (Unity) WinMain
-0x00007ff6174abd4e (Unity) __scrt_common_main_seh
-0x00007ffde20f26bd (KERNEL32) BaseThreadInitThunk
-0x00007ffde370dfb8 (ntdll) RtlUserThreadStart
+Received Import Request.
+  Time since last request: 0.000433 seconds.
+  path: Assets/Frame_1.png
+  artifactKey: Guid(8e3d0a0e74aaced4aa94cafd8eba91ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frame_1.png using Guid(8e3d0a0e74aaced4aa94cafd8eba91ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe179b01cad848fd60409069fedf3044') in 0.117719 seconds 
+  Import took 0.127023 seconds .
 
-Unloading broken assembly Library/ScriptAssemblies/Unity.Notifications.dll, this assembly can cause crashes in the runtime
-0x00007ff6150aab2c (Unity) StackWalker::GetCurrentCallstack
-0x00007ff6150b1f29 (Unity) StackWalker::ShowCallstack
-0x00007ff615e1103c (Unity) GetStacktrace
-0x00007ff61685b2a3 (Unity) DebugStringToFile
-0x00007ff614fc1e95 (Unity) MonoManager::SetupLoadedEditorAssemblies
-0x00007ff614fb8f71 (Unity) MonoManager::EndReloadAssembly
-0x00007ff614fc0057 (Unity) MonoManager::ReloadAssembly
-0x00007ff615cc0e41 (Unity) LoadDomainAndUserAssemblies
-0x00007ff615cc14a9 (Unity) LoadUserAssemblies
-0x00007ff615ef7118 (Unity) <lambda_b7fd2194c9d98d5c5f8d87939b09ad6c>::operator()
-0x00007ff615f7e2f2 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
-0x00007ff615f80450 (Unity) asio::detail::win_iocp_io_service::do_one
-0x00007ff615f83bce (Unity) asio::io_service::run
-0x00007ff615f1f8db (Unity) RunAssetImportWorkerClientV2
-0x00007ff615f1f930 (Unity) RunAssetImporterV2
-0x00007ff6159c5b49 (Unity) Application::InitializeProject
-0x00007ff615e1b4f2 (Unity) WinMain
-0x00007ff6174abd4e (Unity) __scrt_common_main_seh
-0x00007ffde20f26bd (KERNEL32) BaseThreadInitThunk
-0x00007ffde370dfb8 (ntdll) RtlUserThreadStart
+========================================================================
+Received Import Request.
+  Time since last request: 0.000438 seconds.
+  path: Assets/PinClipart.com_cliparts-free_1264504.png
+  artifactKey: Guid(889faa18998fc8a458c83c008134da0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PinClipart.com_cliparts-free_1264504.png using Guid(889faa18998fc8a458c83c008134da0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb5f2e0b639cffd2cead2ce21007c949') in 0.071380 seconds 
+  Import took 0.081670 seconds .
 
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.26 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  3.609 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3613ms)
-		BeginReloadAssembly (575ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (57ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (205ms)
-		EndReloadAssembly (2920ms)
-			LoadAssemblies (422ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (1360ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (109ms)
-			SetupLoadedEditorAssemblies (899ms)
-				LogAssemblyErrors (2ms)
-				InitializePlatformSupportModulesInManaged (21ms)
-				SetLoadedEditorAssemblies (4ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (139ms)
-				ProcessInitializeOnLoadAttributes (693ms)
-				ProcessInitializeOnLoadMethodAttributes (20ms)
-				AfterProcessingInitializeOnLoad (18ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (19ms)
-Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2401 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 104.7 MB.
-System memory in use after: 104.9 MB.
+========================================================================
+Received Import Request.
+  Time since last request: 0.000271 seconds.
+  path: Assets/Frame_4.png
+  artifactKey: Guid(3d717bb96b7618a448cb875ccffbd62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frame_4.png using Guid(3d717bb96b7618a448cb875ccffbd62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a56c6a01ea561885bfa76c72c456a45') in 0.067073 seconds 
+  Import took 0.075293 seconds .
 
-Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 2848.
-Total: 23.075500 ms (FindLiveObjects: 1.882300 ms CreateObjectMapping: 1.154400 ms MarkObjects: 19.238000 ms  DeleteObjects: 0.794600 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000424 seconds.
+  path: Assets/Frame_3.png
+  artifactKey: Guid(18f1b16518dfb254082184c4fd148231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frame_3.png using Guid(18f1b16518dfb254082184c4fd148231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af8357a334c39030cad7a0445af5c2a9') in 0.065079 seconds 
+  Import took 0.073280 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/Frame_2.png
+  artifactKey: Guid(26f879ad4ffaf51439b518cad12e8409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Frame_2.png using Guid(26f879ad4ffaf51439b518cad12e8409) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5058eb8c3c2c860cbcf68211a0ed95b7') in 0.066199 seconds 
+  Import took 0.074128 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000344 seconds.
+  path: Assets/Lemon Tea.ttf
+  artifactKey: Guid(52aef1abbee4d6e44800e5b91ecacb8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Lemon Tea.ttf using Guid(52aef1abbee4d6e44800e5b91ecacb8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cb3707bbd63beb3bb515bb371d65bb3') in 0.110535 seconds 
+  Import took 0.118240 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
