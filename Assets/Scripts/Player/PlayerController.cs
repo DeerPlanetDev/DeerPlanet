@@ -1,41 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] InputActionReference movement;
+    [SerializeField] LayerMask ColliderLayer;
     [SerializeField] float timeToMove = 0.2f;
     private Vector3 origPos, targetPos;
-    private bool isMoving;
+    private Vector2 moveInput;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+
+    private bool isMoving = false;
+
+
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        GameObject eventSystem = GameObject.Find("EventSystem");
+        GameObject inputUI = GameObject.Find("PlayerInputUI");
+
+
+        if (eventSystem != null)
+            eventSystem.transform.SetParent(null);
+        if (inputUI != null)
+        {
+            Canvas canvas = FindObjectOfType<Canvas>();
+            if (canvas != null)
+                inputUI.transform.SetParent(canvas.transform);
+        }
+
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        if (!isMoving)
+        moveInput = movement.action.ReadValue<Vector2>();
+
+        if (moveInput.magnitude != 0 && moveInput.magnitude == 1 && !isMoving)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                StartCoroutine(MovePlayer(Vector3.up));
-                
-            }
+            StartCoroutine(MovePlayer(moveInput));
         }
     }
 
 
     private IEnumerator MovePlayer(Vector3 direction)
     {
-        isMoving = true;
+        void Stop()
+        {
+            isMoving = false;
+            animator.SetFloat("x_dir", 0);
+            animator.SetFloat("y_dir", 0);
+        }
 
+        if (direction.x < 0)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
+
+
+        animator.SetFloat("x_dir", Mathf.Abs(direction.x));
+        animator.SetFloat("y_dir", direction.y);
+
+
+        isMoving = true;
         float elapsedTime = 0;
         origPos = transform.position;
-        targetPos = origPos+direction;
+        targetPos = origPos + direction;
+
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, ColliderLayer))
+        {
+            Stop();
+            yield break;
+        }
 
         while (elapsedTime < timeToMove)
         {
@@ -46,8 +94,13 @@ public class PlayerController : MonoBehaviour
 
         transform.position = targetPos;
 
-        isMoving = false;
+        Stop();
 
     }
+
+
+
+
+
 }
 
