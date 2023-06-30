@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 28034175b59f48b4a98ae1147cf6e7b7
+guid: 2da79d96fec28c24eaf6a05b9afdd2f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -855298285791758126
-    second: Plastic
+      213: -7378246163641345370
+    second: plastico2_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 488, y: 311, z: 611, w: 400}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -118,22 +118,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plastic
+      name: plastico2_0
       rect:
         serializedVersion: 2
-        x: 528
-        y: 355
-        width: 769
-        height: 301
+        x: 563
+        y: 147
+        width: 800
+        height: 800
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d8b16a9dbe5124f0800000000000000
-      internalID: -855298285791758126
+      spriteID: 6aad4cea4343b9990800000000000000
+      internalID: -7378246163641345370
       vertices: []
       indices: 
       edges: []

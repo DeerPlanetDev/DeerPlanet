@@ -3,35 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 
 public class LevelManager : MonoBehaviour
 {
 
-    [SerializeField] float timeLeft = 30;
+    [Header("Settings")]
+    [SerializeField]
+    [Tooltip("Level time limit in seconds")]
+    float levelTime = 30;
+
+
+    [Header("Ui Elements")]
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text timeText;
+    [SerializeField] TMP_Text bioplasticsScoreText;
     [SerializeField] GameObject levelCompletedUi;
     [SerializeField] GameObject outOfTimeUi;
     [SerializeField] GameObject deathUi;
+    [SerializeField] GameObject playerHpUi;
+
 
     public static LevelManager instance;
     private int score = 0;
+    private int bioplasticsScore = 0;
     private bool levelEnded = false;
+
+    [HideInInspector]
+    public int myHiddenVariable;
 
     void Awake()
     {
         instance = this;
     }
 
+    void Start()
+    {
+
+
+        //move uis into canvas 
+        Canvas canvas = FindObjectOfType<Canvas>();
+
+        if (canvas != null)
+        {
+            List<RectTransform> childrenList = new List<RectTransform>();
+            foreach (RectTransform tr in transform)
+                childrenList.Add(tr);
+            foreach (RectTransform tr in childrenList)
+                tr.SetParent(canvas.transform);
+        }
+
+
+
+
+    }
+
     void Update()
     {
         UpdateTime();
         UpdateScore();
+        playerHpUi.GetComponent<Slider>().value = (float)PlayerHealth.instance.playerHP / PlayerHealth.instance.maxHP;
     }
 
     void UpdateScore()
     {
+
+        bioplasticsScoreText.text = "Bio: " + bioplasticsScore.ToString();
         scoreText.text = "Score: " + score.ToString();
         if (GameObject.FindGameObjectsWithTag("Collectable").Length == 0)
             EndLevel(1);
@@ -51,12 +90,12 @@ public class LevelManager : MonoBehaviour
 
     void UpdateTime()
     {
-        timeLeft = Mathf.Clamp(timeLeft - Time.deltaTime, 0, 1000);
-        int minutes = Mathf.FloorToInt(timeLeft / 60);
-        int seconds = Mathf.FloorToInt(timeLeft % 60);
+        levelTime = Mathf.Clamp(levelTime - Time.deltaTime, 0, 1000);
+        int minutes = Mathf.FloorToInt(levelTime / 60);
+        int seconds = Mathf.FloorToInt(levelTime % 60);
         timeText.text = "Time: " + minutes.ToString("00") + ":" + seconds.ToString("00");
 
-        if (timeLeft == 0)
+        if (levelTime == 0)
             EndLevel(2);
     }
 
@@ -91,10 +130,12 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void IncreaseScore(int value)
+    public void IncreaseScore(int score_ = 0, int bio = 0)
     {
-        score += value;
+        score += score_;
+        bioplasticsScore += bio;
     }
+
 
 
 

@@ -18,9 +18,18 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
+        //align to tile 
+        float nearestMultipleX = Mathf.FloorToInt(transform.position.x) + 0.5f;
+        float nearestMultipleY = Mathf.FloorToInt(transform.position.y) + 0.5f;
+        Vector3 newPosition = new Vector3(nearestMultipleX, nearestMultipleY, transform.position.z);
+        transform.position = newPosition;
+
+
+
+
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
