@@ -9,6 +9,7 @@ TagManager:
   - finish
   - Enemy1
   - Wall
+  - Collectable
   layers:
   - Default
   - TransparentFX

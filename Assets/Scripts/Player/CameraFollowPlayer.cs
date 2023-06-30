@@ -10,8 +10,8 @@ public class CameraFollowPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = gameObject.transform.parent.GetComponent<Transform>();
-        //gameObject.transform.SetParent(null);
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        gameObject.transform.SetParent(null);
     }
 
     // Update is called once per frame
