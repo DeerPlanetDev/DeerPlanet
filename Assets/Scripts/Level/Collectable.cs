@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    [SerializeField] int value = 1;
+    [SerializeField] int score = 1;
+    [SerializeField] int heal = 30;
+
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,7 +15,8 @@ public class Collectable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            ScoreManager.instance.IncreaseScore(value);
+            LevelManager.instance.IncreaseScore(score);
+            PlayerHealth.instance.ModifyHP(heal);
         }
     }
 }
