@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject outOfTimeUi;
     [SerializeField] GameObject deathUi;
     [SerializeField] GameObject playerHpUi;
+    [SerializeField] GameObject introUi;
+
 
 
     public static LevelManager instance;
@@ -41,6 +43,8 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        //set ui level name
+        introUi.transform.Find("Title").GetComponent<TMP_Text>().text = "Welcome to " + SceneManager.GetActiveScene().name;
 
 
         //move uis into canvas 
@@ -97,6 +101,11 @@ public class LevelManager : MonoBehaviour
 
         if (levelTime == 0)
             EndLevel(2);
+    }
+
+    public void CloseIntro()
+    {
+        introUi.SetActive(false);
     }
 
 
