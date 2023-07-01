@@ -16,6 +16,15 @@ public class LevelManager : MonoBehaviour
     float levelTime = 30;
 
 
+
+    [Header("Audio")]
+    [SerializeField] AudioSource musicAudio;
+    [SerializeField] AudioSource sfxAudio;
+    [SerializeField] AudioClip clickAudio;
+
+
+
+
     [Header("Ui Elements")]
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text timeText;
@@ -33,12 +42,18 @@ public class LevelManager : MonoBehaviour
     private int bioplasticsScore = 0;
     private bool levelEnded = false;
 
-    [HideInInspector]
-    public int myHiddenVariable;
+    private GameObject player;
+    private bool levelStarted = false;
+
 
     void Awake()
     {
         instance = this;
+
+        musicAudio.volume = GameSettings.musicVolume;
+        sfxAudio.volume = GameSettings.sfxVolume;
+
+
     }
 
     void Start()
@@ -60,15 +75,22 @@ public class LevelManager : MonoBehaviour
         }
 
 
-
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            player.SetActive(false);
+        }
     }
 
     void Update()
     {
-        UpdateTime();
-        UpdateScore();
-        playerHpUi.GetComponent<Slider>().value = (float)PlayerHealth.instance.playerHP / PlayerHealth.instance.maxHP;
+        if (levelStarted)
+        {
+            UpdateTime();
+            UpdateScore();
+            playerHpUi.GetComponent<Slider>().value = (float)PlayerHealth.instance.playerHP / PlayerHealth.instance.maxHP;
+        }
+
     }
 
     void UpdateScore()
@@ -103,9 +125,9 @@ public class LevelManager : MonoBehaviour
             EndLevel(2);
     }
 
-    public void CloseIntro()
+    public void PlayButtonSFX()
     {
-        introUi.SetActive(false);
+        sfxAudio.PlayOneShot(clickAudio);
     }
 
 
@@ -131,6 +153,18 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene(nextSceneIndex);
         else
             SceneManager.LoadScene(0);
+    }
+
+    public void StartLevel()
+    {
+        levelStarted = true;
+        player.SetActive(true);
+
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void ResetLevel()

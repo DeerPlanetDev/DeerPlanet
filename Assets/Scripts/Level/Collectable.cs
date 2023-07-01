@@ -8,6 +8,9 @@ public class Collectable : MonoBehaviour
     [SerializeField] int bioplasticScoreValue = 2;
     [SerializeField] int heal = 30;
 
+    [SerializeField] AudioClip collectSfx;
+
+
     void Start()
     {
 
@@ -25,6 +28,7 @@ public class Collectable : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(collectSfx);
             Destroy(gameObject);
             LevelManager.instance.IncreaseScore(scoreValue, bioplasticScoreValue);
             PlayerHealth.instance.ModifyHP(heal);

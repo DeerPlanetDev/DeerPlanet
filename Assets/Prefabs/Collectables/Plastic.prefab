@@ -48,6 +48,7 @@ MonoBehaviour:
   scoreValue: 1
   bioplasticScoreValue: 0
   heal: 0
+  collectSfx: {fileID: 8300000, guid: 3445bad6a450ec445ac1a4fe24672c75, type: 3}
 --- !u!212 &1112969480582779831
 SpriteRenderer:
   m_ObjectHideFlags: 0
