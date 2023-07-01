@@ -17,8 +17,13 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
 
 
+    void Awake()
+    {
+        gameObject.GetComponent<AudioSource>().volume = GameSettings.sfxVolume;
+    }
 
-    // Start is called before the first frame update 
+
+    // Start is called before the first frame update
     void Start()
     {
         //align to tile 
@@ -45,6 +50,8 @@ public class PlayerController : MonoBehaviour
             if (canvas != null)
                 inputUI.transform.SetParent(canvas.transform);
         }
+
+
 
 
     }

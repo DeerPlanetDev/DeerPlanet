@@ -15,7 +15,7 @@ public class Enemy4Behavior : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Empezando Prueba!");
+        Debug.Log(step_size);
     }
 
     // Update is called once per frame
@@ -77,42 +77,43 @@ public class Enemy4Behavior : MonoBehaviour
     {
         self.SetBool("Moving", true);
         moving = true;
-        switch(dir) {
+        switch (dir)
+        {
             case 0:
-            if(!Physics2D.OverlapCircle(transform.position + new Vector3(0, 1f), 0.5f, 8))
-            {
-                movePoint.transform.position += new Vector3(0, 1f);
-                self.SetInteger("Vertical", 1);
-                self.SetInteger("Horizontal", 0);
-            }
-            break;
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(0, 1f), 0.5f, 8))
+                {
+                    movePoint.transform.position += new Vector3(0, 1f);
+                    self.SetInteger("Vertical", 1);
+                    self.SetInteger("Horizontal", 0);
+                }
+                break;
 
             case 1:
-            if(!Physics2D.OverlapCircle(transform.position - new Vector3(0, 1f), 0.5f, 8))
-            {
-                movePoint.transform.position -= new Vector3(0, 1f);
-                self.SetInteger("Vertical", -1);
-                self.SetInteger("Horizontal", 0);
-            }
-            break;
+                if (!Physics2D.OverlapCircle(transform.position - new Vector3(0, 1f), 0.5f, 8))
+                {
+                    movePoint.transform.position -= new Vector3(0, 1f);
+                    self.SetInteger("Vertical", -1);
+                    self.SetInteger("Horizontal", 0);
+                }
+                break;
 
             case 2:
-            if(!Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0), 0.5f, 8))
-            {
-                movePoint.transform.position += new Vector3(1f, 0);
-                self.SetInteger("Horizontal", 1);
-                self.SetInteger("Vertical", 0);
-            }
-            break;
+                if (!Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0), 0.5f, 8))
+                {
+                    movePoint.transform.position += new Vector3(1f, 0);
+                    self.SetInteger("Horizontal", 1);
+                    self.SetInteger("Vertical", 0);
+                }
+                break;
 
             case 3:
-            if(!Physics2D.OverlapCircle(transform.position - new Vector3(1f, 0), 0.5f, 8))
-            {
-                movePoint.transform.position -= new Vector3(1f, 0);
-                self.SetInteger("Horizontal", -1);
-                self.SetInteger("Vertical", 0);
-            }
-            break;
+                if (!Physics2D.OverlapCircle(transform.position - new Vector3(1f, 0), 0.5f, 8))
+                {
+                    movePoint.transform.position -= new Vector3(1f, 0);
+                    self.SetInteger("Horizontal", -1);
+                    self.SetInteger("Vertical", 0);
+                }
+                break;
         }
     }
 

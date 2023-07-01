@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneCtrl : MonoBehaviour
 {
-    GameObject audio;
+    GameObject audio_;
     AudioSource player;
     Audio track;
     string previousName;
-    private void Start() {
-        audio = GameObject.Find("Audio");
-        player = audio.GetComponent<AudioSource>();
-        track = audio.GetComponent<Audio>();
+    private void Start()
+    {
+        audio_ = GameObject.Find("Audio");
+        player = audio_.GetComponent<AudioSource>();
+        track = audio_.GetComponent<Audio>();
     }
     public void LevelSelection()
     {
@@ -101,7 +102,7 @@ public class SceneCtrl : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
+
     public void Return()
     {
         SceneManager.LoadScene(PlayerPrefs.GetString("previous"));

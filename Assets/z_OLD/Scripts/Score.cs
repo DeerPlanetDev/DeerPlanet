@@ -6,7 +6,7 @@ using System;
 
 public class Score : MonoBehaviour
 {
-    public static Score instance;    
+    public static Score instance;
     public Text scoreText;
     public GameObject h;
     public GameObject player;
@@ -32,13 +32,13 @@ public class Score : MonoBehaviour
 
     public Animator animator;
 
-    public CircleCollider2D collider;
+    public CircleCollider2D collider_;
 
     public GameObject UI;
 
     //public Gameobject canvas;
 
-    private void Awake() 
+    private void Awake()
     {
         instance = this;
         h.SetActive(false);
@@ -54,11 +54,11 @@ public class Score : MonoBehaviour
         //total = collectibles.transform.childCount + collectibles2.transform.childCount; -> antes del cambio a bioplasticos
         total = collectibles2.transform.childCount;
         Debug.Log(total);
-        
+
         //Timer
-//        currentTime = startMinutes * 60;
-//        timeText.text = currentTime.ToString("0") + " :TIME";
-//        startTimer();
+        //        currentTime = startMinutes * 60;
+        //        timeText.text = currentTime.ToString("0") + " :TIME";
+        //        startTimer();
     }
 
     void Update()
@@ -73,10 +73,10 @@ public class Score : MonoBehaviour
             startTimer();
         }
 
-        if(timerIsActive == true)
+        if (timerIsActive == true)
         {
             currentTime = currentTime - Time.deltaTime;
-            if(currentTime <= 0)
+            if (currentTime <= 0)
             {
                 stopTimer();
                 Debug.Log("U lose");
@@ -110,7 +110,7 @@ public class Score : MonoBehaviour
         if (total == 1)
         {
             // Debug.Log("Hola");
-            collider.enabled = false;
+            collider_.enabled = false;
             UI.SetActive(false);
             h.SetActive(true);
             //player.SetActive(false);
