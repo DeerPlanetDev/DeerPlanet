@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Enemy1Behivour : MonoBehaviour
 {
-    //Parameters
+    //Parametros publicos que cuyos valores podemos modificar desde Unity
     public float moveSpeed = 3f;
     public float limitOfYPos = 2.5f;
     public float limitOfYNeg = -2.5f;
     public float limitOfXPos = 3.0f;
     public float limitOfXNeg = -5.5f;
+    //Con esto indicaremos que tipo de movimiento usaremos.
     public string typeOfMovement;
     //Control variables 
     private int control = 0;
-    //Animator
+    //Se especifica el enemigo y su animator
     public Animator animator;
 
     // Start is called before the first frame update
