@@ -49,6 +49,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   movementSpeed: 2
   animator: {fileID: 4359691687005431297}
+  damageSfx: {fileID: 8300000, guid: 61922eb14ba4ab747886219653fd145d, type: 3}
+  damage: -15
 --- !u!212 &4848943817419979476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -110,7 +112,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

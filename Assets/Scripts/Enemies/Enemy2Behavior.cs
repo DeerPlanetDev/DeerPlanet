@@ -21,7 +21,7 @@ public class Enemy2Behavior : MonoBehaviour
     public GameObject player;
 
     //Agregamos un efecto de sonido para indicar al jugador el daño recibido
-    [SerializeField] AudioClip damageSfx;
+    [SerializeField] AudioClip damageSfx; //SE PUEDE REMPLZAR EL INICIO CON UN PUBLIC???
     //Una variable para indicar el daño que se realizara al jugador
     [SerializeField] int damage = -30;
 
@@ -83,21 +83,30 @@ public class Enemy2Behavior : MonoBehaviour
                 }
             }
             
-            //revisa si puede atacar
-            float distanceFromPlayer = (player.transform.position.y - transform.position.y) * control;
+            //revisa si puede atacar calculando la distancia entre el jugador y el enemgio.
+            float distanceFromPlayer = (player.transform.position.y - transform.position.y) * control; //CONTROL nos permite saber si el personaje esta viendo hacia arriba o hacia abajo
+            //Establecemos una distncia maxima de vision para el enemigo.
             float maxVision = 3;
             if(distanceFromWall < 3)
             {
-                maxVision = distanceFromWall;
+                maxVision = distanceFromWall; //Se establece la distancia maxima desde la pared cercana hasta el enemigo
             }
+
             //Debug.Log(distanceFromPlayer);
+
+            //Comprobamos que el jugador se encuentre en el rango de vision y en el eje de movimiento
             if((player.transform.position.x == transform.position.x) && (distanceFromPlayer < maxVision && distanceFromPlayer > 0))
             {
+                //Inicia la simulacion de ataque
                 animator.SetBool("Attacking", true);
+                //YIEL RETURN nos permite pausar la accion realizada durante un tiempo antes de continuar con la sig linea.
                 yield return new WaitForSeconds(2f); //animación
+                //Creamos un proyectil
                 GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+                //Le indicamos al nuevo proyectil la direccion que va a tomar dependiendo de control, accedemos al componente "ProjectileBehaviour"
                 newProjectile.GetComponent<ProjectileBehavior>().direction = new Vector3(0, control, 0);
                 yield return new WaitForSeconds(1.167f);
+                //Termine la animacion de atacar despues de lanzar el proyectil
                 animator.SetBool("Attacking", false);
             }
             yield return null;

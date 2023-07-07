@@ -346,14 +346,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   limitOfYPos: 3.5
-  limitOfYNeg: -1
-  limitOfXPos: 3
-  limitOfXNeg: -5.5
+  limitOfYNeg: -0.5
+  limitOfXPos: 8.5
+  limitOfXNeg: 4.5
   typeOfMovement: Vertical
   animator: {fileID: 1607498067}
   projectile: {fileID: 6904389641248780676, guid: 23cd99d20bd2e0c4095939df428f92d8, type: 3}
   player: {fileID: 1039409965}
-  damageSfx: {fileID: 8300000, guid: 01a6d1db1621dfd43be4ad9af7e037a2, type: 3}
+  damageSfx: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
   damage: -30
 --- !u!61 &1825095268
 BoxCollider2D:
@@ -544,6 +544,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7783374643611204831, guid: f4a103479bffebe4499f173c64870d43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783374643805474112, guid: f4a103479bffebe4499f173c64870d43, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7783374644210074472, guid: f4a103479bffebe4499f173c64870d43, type: 3}
       propertyPath: m_RootOrder
       value: 1
