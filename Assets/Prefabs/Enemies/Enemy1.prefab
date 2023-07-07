@@ -154,7 +154,7 @@ MonoBehaviour:
   limitOfXNeg: -2.5
   typeOfMovement: Horizontal
   animator: {fileID: 4607789609916744027}
-  damageSfx: {fileID: 0}
+  damageSfx: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
   damage: -30
 --- !u!61 &4607789610728294447
 BoxCollider2D:
