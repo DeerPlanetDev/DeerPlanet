@@ -9,7 +9,7 @@ public class ProjectileBehavior : MonoBehaviour
     public float movementSpeed = 2.5f;
     public Animator animator;
     //Agregamos un efecto de sonido para indicar al jugador el daño recibido
-    [SerializeField] AudioClip damageSfx; //SE PUEDE REMPLZAR EL INICIO CON UN PUBLIC???
+    [SerializeField] AudioClip damageSfx;
     //Una variable para indicar el daño que se realizara al jugador
     [SerializeField] int damage = -15;
 
@@ -20,14 +20,14 @@ public class ProjectileBehavior : MonoBehaviour
 
     IEnumerator moveProjectile()
     {
-        while(true)
+        while (true)
         {
-            while(direction == null)
+            while (direction == null)
             {
                 yield return null;
             }
             //Se mueve el proyectil en la direccion especificada por el enemigo
-            transform.position += direction * movementSpeed * Time.deltaTime; 
+            transform.position += direction * movementSpeed * Time.deltaTime;
             yield return null;
         }
     }
@@ -44,7 +44,7 @@ public class ProjectileBehavior : MonoBehaviour
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
 
             //Esto es un test para ver que impacta
-            Debug.Log(other.name);
+            Debug.Log("Impacte al jugador");
 
             //Se ejecuta la siguiente animacion
             animator.SetBool("crashed", true);
@@ -52,8 +52,17 @@ public class ProjectileBehavior : MonoBehaviour
             Destroy(this.gameObject); //animar destrucción
         }
         //El proyectil se destruye si choca con el muro
-        else if (other.CompareTag("Colliders")) //Nombre anterior "Wall"
+        else if (other.CompareTag("Wall"))
         {
+
+            //Esto es un test para ver que impacta
+            Debug.Log("Impacte una pared");
+
+            //Hacemos que suene el sonido de daño
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); //No eliminar audioSource
+
+
+            //Se ejecuta la siguiente animacion
             animator.SetBool("crashed", true);
             yield return new WaitForSeconds(0.3f);
             Destroy(this.gameObject); //animar destrucción
@@ -62,8 +71,11 @@ public class ProjectileBehavior : MonoBehaviour
     //Accion a tomar cuando el proyectil colisione
     void OnTriggerEnter2D(Collider2D other)
     {
+
         StartCoroutine(destroyProjectile(other));
     }
+
+
 
     void Update()
     {
