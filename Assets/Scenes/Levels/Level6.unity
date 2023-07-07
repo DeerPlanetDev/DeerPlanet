@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2493546540051449246, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: levelNumber
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2493546540051449247, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_RootOrder
       value: 2

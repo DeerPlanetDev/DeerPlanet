@@ -9,7 +9,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private bool unlocked; //Default value is false
     public Image unlockImage; //Lock image
     public GameObject[] stars; //Star gameobject
-    public Sprite starSprite; //Filled star sprite
+    public Sprite starSprite, emptyStarSprite; //Filled star sprite
     public int star_num = 0;
     
     // Start is called before the first frame update
@@ -31,6 +31,11 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("Lv" + PreviousLevelNum) > 0)
         {
             unlocked = true;
+        }
+        else //Para el test de borrar Progreso
+        {
+            if(PreviousLevelNum != 0)
+                unlocked = false;
         }
     }
 
@@ -56,6 +61,11 @@ public class LevelSelection : MonoBehaviour
             {
                 stars[i].gameObject.GetComponent<Image>().sprite = starSprite;
             }
+        }
+        if (PlayerPrefs.GetInt("Lv" + int.Parse(gameObject.name)) == 0)   //Para el test de borrar Progreso
+        {
+            for(int i = 0; i < stars.Length; i++)
+                stars[i].gameObject.GetComponent<Image>().sprite = emptyStarSprite;
         }
     }
 

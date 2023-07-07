@@ -14,7 +14,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     [Tooltip("Level time limit in seconds")]
     float levelTime = 30;
-
+    [SerializeField]
+    [Tooltip("Level time limit in seconds for third start")]
+    float levelTimeStar = 40;
+    [SerializeField]
+    [Tooltip("Level Number")]
+    int levelNumber = 1;
 
     [Header("Ui Elements")]
     [SerializeField] TMP_Text scoreText;
@@ -119,6 +124,33 @@ public class LevelManager : MonoBehaviour
             GameObject uiToShow = type == 1 ? levelCompletedUi : (type == 2 ? outOfTimeUi : deathUi);
             HideAllUi();
             uiToShow.SetActive(true);
+            if(type == 1)   //Condiciones para el numero de estrellas conseguidar por nivel
+            {
+                if(PlayerPrefs.GetInt("Lv" + levelNumber) == 1)
+                {
+                    if (PlayerHealth.instance.playerHP == PlayerHealth.instance.maxHP)
+                    {
+                        PlayerPrefs.SetInt("Lv" + levelNumber, 2);
+                        if (levelTime > levelTimeStar)
+                            PlayerPrefs.SetInt("Lv" + levelNumber, 3);
+                    }   
+                }
+                else if(PlayerPrefs.GetInt("Lv" + levelNumber) == 2)
+                {
+                    if(levelTime > levelTimeStar)
+                        PlayerPrefs.SetInt("Lv" + levelNumber, 3);
+                }
+                else if(PlayerPrefs.GetInt("Lv" + levelNumber) == 0)
+                {
+                    PlayerPrefs.SetInt("Lv" + levelNumber, 1);
+                    if (PlayerHealth.instance.playerHP == PlayerHealth.instance.maxHP)
+                    {
+                        PlayerPrefs.SetInt("Lv" + levelNumber, 2);
+                        if (levelTime > levelTimeStar)
+                            PlayerPrefs.SetInt("Lv" + levelNumber, 3);
+                    }
+                }
+            }
         }
     }
 
