@@ -19,7 +19,7 @@ public class Enemy1Behivour : MonoBehaviour
     //Agregamos un efecto de sonido para indicar al jugador el daño recibido
     [SerializeField] AudioClip damageSfx;
     //Una variable para indicar el daño que se realizara al jugador
-    [SerializeField] int damage = 30;
+    [SerializeField] int damage = -30;
 
     // Start is called before the first frame update
     void Start()

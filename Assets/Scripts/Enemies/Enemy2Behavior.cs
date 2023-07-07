@@ -14,11 +14,16 @@ public class Enemy2Behavior : MonoBehaviour
     public string typeOfMovement;
     //Control variables 
     private int control = -1;
-    //Animator
+    //Animator nos permitira indicar las animaciones que debemos de realizar
     public Animator animator;
     public GameObject projectile;
-    //player
+    //player nos permite trakear al jugador
     public GameObject player;
+
+    //Agregamos un efecto de sonido para indicar al jugador el daño recibido
+    [SerializeField] AudioClip damageSfx;
+    //Una variable para indicar el daño que se realizara al jugador
+    [SerializeField] int damage = -30;
 
     // Start is called before the first frame update
     void Start()
@@ -171,4 +176,19 @@ public class Enemy2Behavior : MonoBehaviour
 
     }
     */
+
+
+    //Reducir la vida del jugador cuando entre en contacto con el enemigo
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Comparamaos si entraron en contacto
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Hacemos que suene el sonido de daño
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
+            //Modiicamos la salud del jugador
+            PlayerHealth.instance.ModifyHP(damage);
+        }
+    }
 }
+
