@@ -42,6 +42,10 @@ public class ProjectileBehavior : MonoBehaviour
             PlayerHealth.instance.ModifyHP(damage);
             //Hacemos que suene el sonido de daño
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
+
+            //Esto es un test para ver que impacta
+            Debug.Log(other.name);
+
             //Se ejecuta la siguiente animacion
             animator.SetBool("crashed", true);
             yield return new WaitForSeconds(0.3f);

@@ -349,7 +349,7 @@ MonoBehaviour:
   limitOfYNeg: -0.5
   limitOfXPos: 8.5
   limitOfXNeg: 4.5
-  typeOfMovement: Vertical
+  typeOfMovement: Horizontal
   animator: {fileID: 1607498067}
   projectile: {fileID: 6904389641248780676, guid: 23cd99d20bd2e0c4095939df428f92d8, type: 3}
   player: {fileID: 1039409965}
