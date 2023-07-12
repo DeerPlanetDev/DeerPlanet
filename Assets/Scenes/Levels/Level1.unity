@@ -138,6 +138,44 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2493546539970058740, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539970058740, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1311.3724
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 342.8136
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000022888
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -43.252
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310493, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_text
+      value: 'Gather all the bioplastics in the level and continue this journey.
+
+        REWARDS:
+
+        1
+        STAR--->COMPLETE LEVEL
+
+        2 STAR--->NO DAMAGE
+
+        3 STAR--->40
+        SEG REMAINING TIME'
+      objectReference: {fileID: 0}
     - target: {fileID: 2493546540051449234, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -185,6 +223,30 @@ PrefabInstance:
     - target: {fileID: 2493546540051449247, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540186981320, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -156
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540186981320, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 567.9449
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 155.1289
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 234
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f45660a539fb70439594700261d2997, type: 3}

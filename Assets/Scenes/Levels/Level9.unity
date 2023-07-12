@@ -138,6 +138,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1056.4326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 233.6438
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000011444
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310482, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.3839
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546539992310493, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_text
+      value: 'Gather all the bioplastics in the level and continue this journey.
+
+        REWARDS:
+
+        1
+        STAR--->COMPLETE LEVEL
+
+        2 STAR--->NO DAMAGE
+
+        3 STAR--->40
+        SEG REMAINING TIME'
+      objectReference: {fileID: 0}
     - target: {fileID: 2493546540051449234, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -189,6 +219,22 @@ PrefabInstance:
     - target: {fileID: 2493546540051449247, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540186981320, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0050507
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540186981320, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -240
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0050659
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493546540383771155, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 208
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f45660a539fb70439594700261d2997, type: 3}
