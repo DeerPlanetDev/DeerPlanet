@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*----------------------------------------------------------
+
+Este script solo se encarga de perseguir al jugador, no sigue la "cuadricula"
+
+--------------------------------------------------------------*/
+
 public class EnemyFollow : MonoBehaviour
 {
     public float moveSpeed = 3f;

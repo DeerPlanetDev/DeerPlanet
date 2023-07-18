@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 1296301836}
   - component: {fileID: 1296301839}
   - component: {fileID: 1296301838}
+  - component: {fileID: 1296301840}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -504,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96def1be6b051f2499d73b49893588c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 10
+  vel: 1
   player: {fileID: 786826091}
   movePoint: {fileID: 500167239}
   self: {fileID: 966614322}
@@ -547,19 +548,33 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296301835}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1296301840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296301835}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d060d5655390247927365539e8b78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  stoppingDistance: 0
 --- !u!1001 &2104115564
 PrefabInstance:
   m_ObjectHideFlags: 0

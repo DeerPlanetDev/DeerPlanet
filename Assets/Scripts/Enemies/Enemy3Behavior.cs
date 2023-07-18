@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy4Behavior : MonoBehaviour
+/*-----------------------------------------------------------------------
+
+Este es el script que se esta usando con el enemigo 3
+
+------------------------------------------------------------------------*/
+
+public class Enemy3Behavior : MonoBehaviour
 {
     // Start is called before the first frame update
     private float step_size = 0.5f;

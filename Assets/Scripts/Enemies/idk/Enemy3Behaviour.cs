@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*-----------------------------------------------------
+ 
+Revisar que objetos son los que faltan
+ 
+------------------------------------------------------- */
+
 public class Enemy3Behaviour : MonoBehaviour
 {
     public int rutina;
@@ -15,8 +21,8 @@ public class Enemy3Behaviour : MonoBehaviour
 
     public float rango_vision;
     public float rango_ataque;
-    public GameObject rango;
-    public GameObject Hit;
+    public GameObject rango; //Vision de vigilia del enemigo?
+    public GameObject Hit; //Vision de ataque del enemigo?
 
     // Start is called before the first frame update
     void Start()
