@@ -7,8 +7,10 @@ public class Enemy4Behavior : MonoBehaviour
     // Start is called before the first frame update
     private float step_size = 0.5f;
     public float vel = 1.0f;
+    //Objetivo a seguir
     public GameObject player, movePoint;
     private RaycastHit2D hit_up, hit_down, hit_left, hit_right;
+    //Animacion del personaje
     public Animator self;
     private Vector3 lastKnownPos;
     private bool moving = false;
