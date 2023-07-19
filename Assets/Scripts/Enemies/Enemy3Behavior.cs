@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*-----------------------------------------------------------------------
 
-Este es el script que se esta usando con el enemigo 3
+Este es el script que se esta usando con el enemigo 3------**
 
 ------------------------------------------------------------------------*/
 
