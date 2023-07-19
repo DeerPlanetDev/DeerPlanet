@@ -10,173 +10,51 @@ Este es el script que se esta usando con el enemigo 3------**
 
 public class Enemy3Behavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private float step_size = 0.5f;
-    public float vel = 1.0f;
-    //Objetivo a seguir
-    public GameObject player, movePoint;
-    private RaycastHit2D hit_up, hit_down, hit_left, hit_right;
-    //Animacion del personaje
-    public Animator self;
-    private Vector3 lastKnownPos;
-    private bool moving = false;
 
-    void Start()
+    [SerializeField] float speed = 1.0f;
+    [SerializeField] int detectionRange = 100;
+    [SerializeField] LayerMask playerLayer;
+
+    Animator animator;
+    Vector2 playerDirection = new Vector2(0, 0);
+
+
+    private void Start()
     {
-        Debug.Log(step_size);
+        animator = GetComponent<Animator>();
+
+        AlignToNearestTile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Rayo hacia arriba
-        hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.7f), Vector2.up);
-        // Rayo hacia abajo
-        hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.7f), Vector2.down);
-        // Rayo hacia izquierda
-        hit_left = Physics2D.Raycast(new Vector2(transform.position.x - 0.8f, transform.position.y), Vector2.left);
-        // Rayo hacia derecha
-        hit_right = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y), Vector2.right);
 
-        // if ((transform.position - player.transform.position).magnitude > 0.1) {
-        if (moving)
-        {
-            Debug.Log("Moviendo");
-            moveP();
-        }
-        else if (hit_up.collider != null && hit_up.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Arriba");
-            lastKnownPos = player.transform.position;
-            move(0);
-        }
-        else if (hit_down.collider != null && hit_down.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Abajo");
-            lastKnownPos = player.transform.position;
-            move(1);
-        }
-        else if (hit_left.collider != null && hit_left.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Izquierda");
-            lastKnownPos = player.transform.position;
-            move(3);
-        }
-        else if (hit_right.collider != null && hit_right.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Derecha");
-            lastKnownPos = player.transform.position;
-            move(2);
-        }
+    void AlignToNearestTile()
+    {
+        float nearestMultipleX = Mathf.FloorToInt(transform.position.x) + 0.5f;
+        float nearestMultipleY = Mathf.FloorToInt(transform.position.y) + 0.5f;
+        Vector3 newPosition = new Vector3(nearestMultipleX, nearestMultipleY, transform.position.z);
+        transform.position = Vector2.Lerp(transform.position, newPosition, Time.deltaTime);
+    }
+
+
+    void FixedUpdate()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.right, detectionRange, playerLayer).collider != null)
+            playerDirection = Vector2.right;
+        else if (Physics2D.Raycast(transform.position, Vector2.left, detectionRange, playerLayer).collider != null)
+            playerDirection = Vector2.left;
+        else if (Physics2D.Raycast(transform.position, Vector2.up, detectionRange, playerLayer).collider != null)
+            playerDirection = Vector2.up;
+        else if (Physics2D.Raycast(transform.position, Vector2.down, detectionRange, playerLayer).collider != null)
+            playerDirection = Vector2.down;
         else
-        {
-            self.SetBool("Moving", false);
-            self.SetInteger("Vertical", 0);
-            self.SetInteger("Horizontal", 0);
-        }
-        // }
-    }
+            playerDirection = Vector2.zero;
 
-    private void move(int dir)
-    {
-        self.SetBool("Moving", true);
-        moving = true;
-        switch (dir)
-        {
-            case 0:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(0, 1f), 0.5f, 8))
-                {
-                    movePoint.transform.position += new Vector3(0, 1f);
-                    self.SetInteger("Vertical", 1);
-                    self.SetInteger("Horizontal", 0);
-                }
-                break;
-
-            case 1:
-                if (!Physics2D.OverlapCircle(transform.position - new Vector3(0, 1f), 0.5f, 8))
-                {
-                    movePoint.transform.position -= new Vector3(0, 1f);
-                    self.SetInteger("Vertical", -1);
-                    self.SetInteger("Horizontal", 0);
-                }
-                break;
-
-            case 2:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0), 0.5f, 8))
-                {
-                    movePoint.transform.position += new Vector3(1f, 0);
-                    self.SetInteger("Horizontal", 1);
-                    self.SetInteger("Vertical", 0);
-                }
-                break;
-
-            case 3:
-                if (!Physics2D.OverlapCircle(transform.position - new Vector3(1f, 0), 0.5f, 8))
-                {
-                    movePoint.transform.position -= new Vector3(1f, 0);
-                    self.SetInteger("Horizontal", -1);
-                    self.SetInteger("Vertical", 0);
-                }
-                break;
-        }
-    }
-
-    private void moveP()
-    {
-        if ((transform.position - movePoint.transform.position).magnitude > 0.1)
-        {
-            Vector3 dis = movePoint.transform.position - transform.position;
-            transform.position += dis * Time.deltaTime * vel;
-        }
+        if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
+            transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
         else
-        {
-            moving = false;
-        }
+            AlignToNearestTile();
+
+        animator.SetInteger("Vertical", (int)playerDirection.y);
+        animator.SetInteger("Horizontal", (int)playerDirection.x);
     }
-
-    // private void move(int dir)
-    // {
-    //     self.SetBool("Moving", true);
-    //     switch(dir) {
-    //         case 0:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position + new Vector3(0, 0.5f), 0.5f, 8))
-    //         {
-    //             transform.position += new Vector3(0, vel * Time.deltaTime);
-    //             self.SetInteger("Vertical", 1);
-    //             self.SetInteger("Horizontal", 0);
-    //         }
-    //         break;
-
-    //         case 1:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position - new Vector3(0, 0.5f), 0.5f, 8))
-    //         {
-    //             transform.position -= new Vector3(0, vel * Time.deltaTime);
-    //             self.SetInteger("Vertical", -1);
-    //             self.SetInteger("Horizontal", 0);
-    //         }
-    //         break;
-
-    //         case 2:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position + new Vector3(0.5f, 0), 0.5f, 8))
-    //         {
-    //             transform.position += new Vector3(vel * Time.deltaTime, 0);
-    //             self.SetInteger("Horizontal", 1);
-    //             self.SetInteger("Vertical", 0);
-    //         }
-    //         break;
-
-    //         case 3:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position - new Vector3(0.5f, 0), 0.5f, 8))
-    //         {
-    //             transform.position -= new Vector3(vel * Time.deltaTime, 0);
-    //             self.SetInteger("Horizontal", -1);
-    //             self.SetInteger("Vertical", 0);
-    //         }
-    //         break;
-    //     }
-    // }
 }
