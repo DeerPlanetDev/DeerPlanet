@@ -15,7 +15,9 @@ public class Enemy3Behavior : MonoBehaviour
     [SerializeField] int detectionRange = 100;
     [SerializeField] LayerMask playerLayer;
 
+
     Animator animator;
+    bool detectedPlayer = false;
     Vector2 playerDirection = new Vector2(0, 0);
 
 
@@ -38,16 +40,18 @@ public class Enemy3Behavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.right, detectionRange, playerLayer).collider != null)
-            playerDirection = Vector2.right;
-        else if (Physics2D.Raycast(transform.position, Vector2.left, detectionRange, playerLayer).collider != null)
-            playerDirection = Vector2.left;
-        else if (Physics2D.Raycast(transform.position, Vector2.up, detectionRange, playerLayer).collider != null)
-            playerDirection = Vector2.up;
-        else if (Physics2D.Raycast(transform.position, Vector2.down, detectionRange, playerLayer).collider != null)
-            playerDirection = Vector2.down;
-        else
-            playerDirection = Vector2.zero;
+
+        foreach (Vector2 dir in new Vector2[] { Vector2.down, Vector2.up, Vector2.left, Vector2.right })
+        {
+            if (Physics2D.Raycast(transform.position, dir, detectionRange, playerLayer).collider != null)
+            {
+                playerDirection = dir;
+                break;
+            }
+            else
+                playerDirection = Vector2.zero;
+        }
+
 
         if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
             transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
