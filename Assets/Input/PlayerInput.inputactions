@@ -72,7 +72,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "D-pad",
+                    "name": "D-pad (Mobile)",
                     "id": "ebd47f9b-b4cc-4172-85aa-3d3e4a302ae4",
                     "path": "2DVector(mode=1)",
                     "interactions": "",
