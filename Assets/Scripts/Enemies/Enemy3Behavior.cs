@@ -29,6 +29,7 @@ public class Enemy3Behavior : MonoBehaviour
     }
 
 
+    //Alineamos con la posicion de la cuadricula
     void AlignToNearestTile()
     {
         float nearestMultipleX = Mathf.FloorToInt(transform.position.x) + 0.5f;
