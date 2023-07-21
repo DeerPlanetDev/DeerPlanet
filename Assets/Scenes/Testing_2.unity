@@ -968,6 +968,7 @@ GameObject:
   - component: {fileID: 1296301836}
   - component: {fileID: 1296301839}
   - component: {fileID: 1296301838}
+  - component: {fileID: 1296301840}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -988,10 +989,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  detectionRange: 100
+  detectionRange: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  damage: -30
+  notScore: -1
 --- !u!4 &1296301837
 Transform:
   m_ObjectHideFlags: 0

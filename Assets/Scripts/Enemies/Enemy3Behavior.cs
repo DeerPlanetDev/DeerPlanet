@@ -20,6 +20,10 @@ public class Enemy3Behavior : MonoBehaviour
     bool detectedPlayer = false;
     Vector2 playerDirection = new Vector2(0, 0);
 
+    //Para el daño
+    //[SerializeField] AudioClip damageSfx; //Sonido ------------------------ AGREGAR SONIDO AL UNIR RAMA DE ENEMIGOS 1 Y 2
+    [SerializeField] int damage = -30; //Daño realizado
+    [SerializeField] int notScore = -1; //Puntaje a restar
 
     private void Start()
     {
@@ -29,6 +33,7 @@ public class Enemy3Behavior : MonoBehaviour
     }
 
 
+    //Alineamos con la posicion de la cuadricula
     void AlignToNearestTile()
     {
         float nearestMultipleX = Mathf.FloorToInt(transform.position.x) + 0.5f;
@@ -61,4 +66,21 @@ public class Enemy3Behavior : MonoBehaviour
         animator.SetInteger("Vertical", (int)playerDirection.y);
         animator.SetInteger("Horizontal", (int)playerDirection.x);
     }
+
+
+    //Reducir la vida del jugador y su puntaje cuando entre en contacto con el enemigo
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Comparamaos si entraron en contacto
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Hacemos que suene el sonido de daño
+            //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
+            //Modiicamos la salud del jugador
+            PlayerHealth.instance.ModifyHP(damage);
+            //Modificamos el puntaje del jugador
+            LevelManager.instance.IncreaseScore(notScore, 0); //Solo modificaremos el puntaje (primer parametro)
+        }
+    }
+
 }
