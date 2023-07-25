@@ -1,9 +1,12 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using System;
+using UnityEngine.Audio;
+using Unity.Profiling;
+using UnityEditor;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -12,8 +15,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] PostProcessLayer postProcessingLayer;
 
     [Header("Audio")]
+    [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource musicAudio;
-    [SerializeField] AudioSource sfxAudio;
+    [SerializeField] AudioSource buttonsAudio;
 
     [SerializeField] AudioClip clickAudio;
     [SerializeField] AudioClip backAudio;
@@ -24,22 +28,30 @@ public class MainMenuManager : MonoBehaviour
 
 
     [Header("Settings Ui")]
+    [SerializeField] Slider generalSlider;
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider buttonSlider;
+    [SerializeField] Slider playerSlider;
     [SerializeField] Slider brightnessSlider;
     [Header("Settings Text Counters")]
+    [SerializeField] TextMeshProUGUI generalCounter;
     [SerializeField] TextMeshProUGUI musicCounter;
     [SerializeField] TextMeshProUGUI sfxCounter;
+    [SerializeField] TextMeshProUGUI buttonCounter;
+    [SerializeField] TextMeshProUGUI playerCounter;
     [SerializeField] TextMeshProUGUI brightnessCounter;
 
     void Awake()
     {
-        musicSlider.value = GameSettings.musicVolume;
-        sfxSlider.value = GameSettings.sfxVolume;
+        DefaultVolSlider(generalSlider, GameSettings.generalVolume, ref generalCounter);
+        DefaultVolSlider(musicSlider, GameSettings.musicVolume, ref musicCounter);
+        DefaultVolSlider(sfxSlider, GameSettings.sfxVolume, ref sfxCounter);
+        DefaultVolSlider(buttonSlider, GameSettings.buttonsVolume, ref buttonCounter);
+        DefaultVolSlider(playerSlider, GameSettings.playerVolume, ref playerCounter);
+
+        UpdateBrightness(GameSettings.brightness);
         brightnessSlider.value = GameSettings.brightness;
-        musicCounter.text = ((int)(GameSettings.musicVolume * 100)).ToString();
-        sfxCounter.text = ((int)(GameSettings.sfxVolume * 100)).ToString();
-        brightnessCounter.text = GetUIBrightnessText(GameSettings.brightness);
     }
 
     // Start is called before the first frame update
@@ -51,11 +63,25 @@ public class MainMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (musicAudio.volume != GameSettings.musicVolume)
-            musicAudio.volume = GameSettings.musicVolume;
+        audioMixer.GetFloat("musicVol", out float volume);
+        if (volume != GameSettings.musicVolume)
+            audioMixer.SetFloat("musicVol", GameSettings.musicVolume);
 
-        if (sfxAudio.volume != GameSettings.sfxVolume)
-            sfxAudio.volume = GameSettings.sfxVolume;
+        audioMixer.GetFloat("generalVol", out volume);
+        if (volume != GameSettings.generalVolume)
+            audioMixer.SetFloat("generalVol", GameSettings.generalVolume);
+
+        audioMixer.GetFloat("sfxVol", out volume);
+        if (volume != GameSettings.sfxVolume)
+            audioMixer.SetFloat("sfxVol", GameSettings.sfxVolume);
+
+        audioMixer.GetFloat("playerVol", out volume);
+        if (volume != GameSettings.playerVolume)
+            audioMixer.SetFloat("playerVol", GameSettings.playerVolume);
+
+        audioMixer.GetFloat("buttonsVol", out volume);
+        if (volume != GameSettings.buttonsVolume)
+            audioMixer.SetFloat("buttonsVol", GameSettings.buttonsVolume);
     }
 
 
@@ -87,7 +113,7 @@ public class MainMenuManager : MonoBehaviour
                 levelUi.name = sceneName;
                 levelUi.transform.localScale = new Vector3(1, 1, 1);
                 levelUi.SetActive(true);
-                // Por alguna razón cada objeto de este nivel cambia su valor de z a -4500, lo recoloque a 0.
+                // Por alguna razï¿½n cada objeto de este nivel cambia su valor de z a -4500, lo recoloque a 0.
                 RectTransform rt = levelUi.GetComponent<RectTransform>();
                 levelUi.GetComponent<RectTransform>().position = new Vector3(rt.position.x, rt.position.y, 100);
 
@@ -99,31 +125,71 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    public void PlaySFX(int a)
+    public void PlayButtons(int a)
     {
         AudioClip audioToPlay = a == 1 ? clickAudio : backAudio;
-        sfxAudio.PlayOneShot(audioToPlay);
+        buttonsAudio.PlayOneShot(audioToPlay);
     }
 
-
-    public void UpdateSFXVolume(float value)
+    public void UpdateGeneralVolume(float val)
     {
-        GameSettings.sfxVolume = value;
-        sfxCounter.text = ((int)(value * 100)).ToString();
+        AdjustAudioMixerGroup("generalVol",
+               val, generalCounter,
+               ref GameSettings.generalVolume);
     }
 
-    public void UpdateMusicVolume(float value)
+    public void UpdateSFXVolume(float val)
     {
-        GameSettings.musicVolume = value;
-        musicCounter.text = ((int)(value * 100)).ToString();
+        AdjustAudioMixerGroup("sfxVol",
+            val, sfxCounter,
+            ref GameSettings.sfxVolume);
     }
 
-    public void UpdateBrightness(float value)
+    public void UpdateButtonsVolume(float val)
     {
-        GameSettings.brightness = value;
+        AdjustAudioMixerGroup("buttonsVol",
+            val, buttonCounter,
+            ref GameSettings.buttonsVolume);
+    }
+
+    public void UpdatePlayerVolume(float val)
+    {
+        AdjustAudioMixerGroup("playerVol",
+            val, playerCounter,
+            ref GameSettings.playerVolume);
+    }
+    public void UpdateMusicVolume(float val)
+    {
+        AdjustAudioMixerGroup("musicVol",
+            val, musicCounter,
+            ref GameSettings.musicVolume);
+    }
+
+    // Value must vary between -25f and 5f in each slider.
+    private void AdjustAudioMixerGroup(string id, float val,
+        TextMeshProUGUI counter, ref float gameSettingVal)
+    {
+
+        if (val <= -25f)
+        {
+            gameSettingVal = -80f;
+            counter.text = 0.ToString();
+        }
+        else if (audioMixer.SetFloat(id, val))
+        {
+            gameSettingVal = val;
+            float textual = Mathf.InverseLerp(-25f, 5f, val);
+            textual = Mathf.Lerp(0f, 100f, textual);
+            counter.text = ((int)textual).ToString();
+        }
+    }
+
+    public void UpdateBrightness(float val)
+    {
+        GameSettings.brightness = val;
         postProcessingProfile.TryGetSettings(out AutoExposure exposure);
-        exposure.keyValue.value = value;
-        brightnessCounter.text = GetUIBrightnessText(value);
+        exposure.keyValue.value = val;
+        brightnessCounter.text = GetUIBrightnessText(val);
     }
 
     void LoadScene(int index)
@@ -133,9 +199,19 @@ public class MainMenuManager : MonoBehaviour
 
     string GetUIBrightnessText(float value)
     {
-        float normal = 
+        float normal =
             Mathf.InverseLerp(brightnessSlider.minValue, brightnessSlider.maxValue, value);
-        return ((int)Mathf.Lerp(0f, 100f, normal)).ToString();   
+        return ((int)Mathf.Lerp(0f, 100f, normal)).ToString();
+    }
+
+    private void DefaultVolSlider(Slider slider, float value, ref TextMeshProUGUI text)
+    {
+        float adjust = value < -25f ? -25f : value;
+        slider.value = adjust;
+
+        adjust = Mathf.InverseLerp(-25f, 5f, adjust);
+        adjust = Mathf.Lerp(0f, 100f, adjust);
+        text.text = ((int)adjust).ToString();
     }
 
 }
