@@ -59,7 +59,7 @@ public class Enemy3Behavior : MonoBehaviour
 
 
         if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
-            transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
+            StartCoroutine(MoveAfterAnim());
         else
             AlignToNearestTile();
 
@@ -68,18 +68,40 @@ public class Enemy3Behavior : MonoBehaviour
     }
 
 
+    //El enemigo se mueve despues de unos segundos --- anim de salto
+    IEnumerator MoveAfterAnim()
+    {
+        yield return new WaitForSeconds(0.5f);
+        transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
+    }
+
+
+    //Para que no atraviese las paredes
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Colliders"))
+    //    {
+    //        playerDirection = Vector2.zero;
+    //    }
+    //}
+
     //Reducir la vida del jugador y su puntaje cuando entre en contacto con el enemigo
     void OnTriggerEnter2D(Collider2D other)
     {
         //Comparamaos si entraron en contacto
         if (other.gameObject.CompareTag("Player"))
         {
-            //Hacemos que suene el sonido de daño
+            //Sonido de daño
             //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
             //Modiicamos la salud del jugador
             PlayerHealth.instance.ModifyHP(damage);
             //Modificamos el puntaje del jugador
             LevelManager.instance.IncreaseScore(notScore, 0); //Solo modificaremos el puntaje (primer parametro)
+        }
+
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            playerDirection = Vector2.zero;
         }
     }
 
