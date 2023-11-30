@@ -11,6 +11,7 @@ public class Collectable : MonoBehaviour
     [SerializeField] AudioClip collectSfx;
 
 
+    //Esta parte alinea un objeto con la poscicion de una cuadricula
     void Start()
     {
 
