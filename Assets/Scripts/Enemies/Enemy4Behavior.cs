@@ -1,174 +1,125 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Enemy4Behavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private float step_size = 0.5f;
-    public float vel = 1.0f;
-    public GameObject player, movePoint;
-    private RaycastHit2D hit_up, hit_down, hit_left, hit_right;
-    public Animator self;
-    private Vector3 lastKnownPos;
-    private bool moving = false;
+    [Header("References")]
+    [SerializeField] Transform partolPoints;
+    [SerializeField] GameObject signPrefab;
+    [SerializeField] LayerMask playerLayer;
+    [SerializeField] LayerMask colliderLayer;
 
-    void Start()
+    [Header("Settings")]
+    [SerializeField] float speed = 1.0f;
+    [SerializeField] int detectionRange = 2;
+    [SerializeField] float signDuration = 5f;
+    [SerializeField] bool damagesPlayer = true;
+
+
+    Animator animator;
+    bool signIsActive = false;
+    Vector2 playerDirection = new Vector2(0, 0);
+    Vector3 movingDir;
+    int goingToPointNumber = 0;
+    int numOfpatrolPoints;
+
+    //En caso de realizar daño necesita
+    //[SerializeField] AudioClip damageSfx; //Sonido ------------------------ AGREGAR SONIDO AL UNIR RAMA DE ENEMIGOS 1 Y 2
+    [SerializeField] int damage = -30; //Daño realizado
+    [SerializeField] int notScore = -1; //Puntaje a restar
+
+
+
+    private void Start()
     {
-        Debug.Log(step_size);
+        transform.position = partolPoints.GetChild(0).position;
+        animator = GetComponent<Animator>();
+        numOfpatrolPoints = partolPoints.childCount;
+
+        foreach (Transform patrolPoint in partolPoints)
+            AlignPointToGrid(patrolPoint);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Rayo hacia arriba
-        hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.7f), Vector2.up);
-        // Rayo hacia abajo
-        hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.7f), Vector2.down);
-        // Rayo hacia izquierda
-        hit_left = Physics2D.Raycast(new Vector2(transform.position.x - 0.8f, transform.position.y), Vector2.left);
-        // Rayo hacia derecha
-        hit_right = Physics2D.Raycast(new Vector2(transform.position.x + 0.7f, transform.position.y), Vector2.right);
 
-        // if ((transform.position - player.transform.position).magnitude > 0.1) {
-        if (moving)
-        {
-            Debug.Log("Moviendo");
-            moveP();
-        }
-        else if (hit_up.collider != null && hit_up.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Arriba");
-            lastKnownPos = player.transform.position;
-            move(0);
-        }
-        else if (hit_down.collider != null && hit_down.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Abajo");
-            lastKnownPos = player.transform.position;
-            move(1);
-        }
-        else if (hit_left.collider != null && hit_left.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Izquierda");
-            lastKnownPos = player.transform.position;
-            move(3);
-        }
-        else if (hit_right.collider != null && hit_right.collider.CompareTag("Player"))
-        {
-            // Play animation and move
-            Debug.Log("Derecha");
-            lastKnownPos = player.transform.position;
-            move(2);
-        }
+    private void Update()
+    {
+        if (Vector2.Distance(transform.position, partolPoints.transform.GetChild(goingToPointNumber).position) > 0)
+            transform.position = Vector2.MoveTowards(transform.position, partolPoints.transform.GetChild(goingToPointNumber).position, Time.deltaTime * speed);
         else
-        {
-            self.SetBool("Moving", false);
-            self.SetInteger("Vertical", 0);
-            self.SetInteger("Horizontal", 0);
-        }
-        // }
+            goingToPointNumber = (goingToPointNumber == numOfpatrolPoints - 1) ? 0 : (goingToPointNumber + 1);
+
+
+        movingDir = Vector3.Normalize((partolPoints.transform.GetChild(goingToPointNumber).position - transform.position));
+        animator.SetFloat("Vertical", movingDir.y);
+        animator.SetFloat("Horizontal", movingDir.x);
     }
 
-    private void move(int dir)
+    void PlaceSign()
     {
-        self.SetBool("Moving", true);
-        moving = true;
-        switch (dir)
+        if (!signIsActive)
         {
-            case 0:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(0, 1f), 0.5f, 8))
-                {
-                    movePoint.transform.position += new Vector3(0, 1f);
-                    self.SetInteger("Vertical", 1);
-                    self.SetInteger("Horizontal", 0);
-                }
-                break;
-
-            case 1:
-                if (!Physics2D.OverlapCircle(transform.position - new Vector3(0, 1f), 0.5f, 8))
-                {
-                    movePoint.transform.position -= new Vector3(0, 1f);
-                    self.SetInteger("Vertical", -1);
-                    self.SetInteger("Horizontal", 0);
-                }
-                break;
-
-            case 2:
-                if (!Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0), 0.5f, 8))
-                {
-                    movePoint.transform.position += new Vector3(1f, 0);
-                    self.SetInteger("Horizontal", 1);
-                    self.SetInteger("Vertical", 0);
-                }
-                break;
-
-            case 3:
-                if (!Physics2D.OverlapCircle(transform.position - new Vector3(1f, 0), 0.5f, 8))
-                {
-                    movePoint.transform.position -= new Vector3(1f, 0);
-                    self.SetInteger("Horizontal", -1);
-                    self.SetInteger("Vertical", 0);
-                }
-                break;
+            Vector3 signPos = transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
+            if (Physics2D.OverlapCircle(signPos, 0.1f, playerLayer + colliderLayer) == null)
+            {
+                signIsActive = true;
+                GameObject sign = Instantiate(signPrefab, signPos, Quaternion.identity);
+                AlignPointToGrid(sign.transform);
+                Destroy(sign, signDuration);
+                Invoke("ResetSign", signDuration);
+            }
         }
     }
 
-    private void moveP()
+    void ResetSign()
     {
-        if ((transform.position - movePoint.transform.position).magnitude > 0.1)
+        signIsActive = false;
+    }
+
+    void FixedUpdate()
+    {
+
+        foreach (Vector2 dir in new Vector2[] { Vector2.down, Vector2.up, Vector2.left, Vector2.right })
         {
-            Vector3 dis = movePoint.transform.position - transform.position;
-            transform.position += dis * Time.deltaTime * vel;
+            if (Physics2D.Raycast(transform.position, dir, detectionRange, playerLayer).collider != null)
+            {
+                playerDirection = dir;
+                break;
+            }
+            else
+                playerDirection = Vector2.zero;
         }
-        else
+
+        if (playerDirection.magnitude != 0)
+            PlaceSign();
+
+    }
+
+
+    void AlignPointToGrid(Transform point)
+    {
+        float nearestMultipleX = Mathf.FloorToInt(point.position.x) + 0.5f;
+        float nearestMultipleY = Mathf.FloorToInt(point.position.y) + 0.5f;
+        Vector3 newPosition = new Vector3(nearestMultipleX, nearestMultipleY, point.position.z);
+        point.position = newPosition;
+    }
+
+
+    //Reducir la vida del jugador y su puntaje cuando entre en contacto con el enemigo
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(damagesPlayer == true)
         {
-            moving = false;
+            //Comparamaos si entraron en contacto
+            if (other.gameObject.CompareTag("Player"))
+            {
+                //Hacemos que suene el sonido de daño
+                //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
+                //Modiicamos la salud del jugador
+                PlayerHealth.instance.ModifyHP(damage);
+                //Modificamos el puntaje del jugador
+                LevelManager.instance.IncreaseScore(notScore, 0); //Solo modificaremos el puntaje (primer parametro)
+            }
         }
     }
 
-    // private void move(int dir)
-    // {
-    //     self.SetBool("Moving", true);
-    //     switch(dir) {
-    //         case 0:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position + new Vector3(0, 0.5f), 0.5f, 8))
-    //         {
-    //             transform.position += new Vector3(0, vel * Time.deltaTime);
-    //             self.SetInteger("Vertical", 1);
-    //             self.SetInteger("Horizontal", 0);
-    //         }
-    //         break;
-
-    //         case 1:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position - new Vector3(0, 0.5f), 0.5f, 8))
-    //         {
-    //             transform.position -= new Vector3(0, vel * Time.deltaTime);
-    //             self.SetInteger("Vertical", -1);
-    //             self.SetInteger("Horizontal", 0);
-    //         }
-    //         break;
-
-    //         case 2:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position + new Vector3(0.5f, 0), 0.5f, 8))
-    //         {
-    //             transform.position += new Vector3(vel * Time.deltaTime, 0);
-    //             self.SetInteger("Horizontal", 1);
-    //             self.SetInteger("Vertical", 0);
-    //         }
-    //         break;
-
-    //         case 3:
-    //         if(!Physics2D.OverlapCircle(movePoint.transform.position - new Vector3(0.5f, 0), 0.5f, 8))
-    //         {
-    //             transform.position -= new Vector3(vel * Time.deltaTime, 0);
-    //             self.SetInteger("Horizontal", -1);
-    //             self.SetInteger("Vertical", 0);
-    //         }
-    //         break;
-    //     }
-    // }
 }
