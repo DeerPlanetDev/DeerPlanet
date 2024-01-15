@@ -59,6 +59,7 @@ public class MainMenuManager : MonoBehaviour
     {
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
+           
             GameObject ui = canvas.transform.GetChild(i).transform.gameObject;
             if (i == uiIndex)
                 ui.SetActive(true);
