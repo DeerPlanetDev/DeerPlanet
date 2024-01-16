@@ -14,27 +14,15 @@ public class SceneCtrl : MonoBehaviour
     }
     public void LevelSelection()
     {
-
-        // SceneManager.LoadScene("SeleccionNiveles");
         SceneManager.LoadScene("LevelSelection");
     }
     public void MainMenu()
     {
-        if (player.clip != track.music[4])
-        {
-            player.clip = track.music[4];
-            player.Play();
-        }
         SceneManager.LoadScene("MainMenu");
     }
     public void AjustesMenu()
     {
         PlayerPrefs.SetString("previous", SceneManager.GetActiveScene().name);
-        // if (player.clip != track.music[4])
-        // {
-        //     player.clip = track.music[4];
-        //     player.Play();
-        // }
         SceneManager.LoadScene("Ajustes");
     }
     public void Level1()
