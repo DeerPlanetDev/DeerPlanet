@@ -10,17 +10,11 @@ public class SceneCtrl : MonoBehaviour
     Audio track;
     string previousName;
     private void Start() {
-        au = GameObject.Find("Audio");
-        player = au.GetComponent<AudioSource>();
-        track = au.GetComponent<Audio>();
+
     }
     public void LevelSelection()
     {
-        if (player.clip != track.music[4])
-        {
-            player.clip = track.music[4];
-            player.Play();
-        }
+
         // SceneManager.LoadScene("SeleccionNiveles");
         SceneManager.LoadScene("LevelSelection");
     }
