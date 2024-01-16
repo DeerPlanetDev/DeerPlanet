@@ -15,6 +15,7 @@ public class SceneCtrl : MonoBehaviour
     public void LevelSelection()
     {
         SceneManager.LoadScene("LevelSelection");
+
     }
     public void MainMenu()
     {
