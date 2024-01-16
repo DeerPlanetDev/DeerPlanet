@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
 
         musicAudio.volume = GameSettings.musicVolume;
         sfxAudio.volume = GameSettings.sfxVolume;
-        brighnessPanel.color = new Color(0, 0, 0, GameSettings.brightness);
+        brighnessPanel.color = new Color(0, 0, 0, 0.8f-0.8f*GameSettings.brightness);
     }
 
     void Start()
