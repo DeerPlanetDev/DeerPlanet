@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject deathUi;
     [SerializeField] GameObject playerHpUi;
     [SerializeField] GameObject introUi;
+    [SerializeField] Image brighnessPanel;
 
 
 
@@ -52,8 +53,7 @@ public class LevelManager : MonoBehaviour
 
         musicAudio.volume = GameSettings.musicVolume;
         sfxAudio.volume = GameSettings.sfxVolume;
-
-
+        brighnessPanel.color = new Color(0, 0, 0, GameSettings.brightness);
     }
 
     void Start()

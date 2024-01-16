@@ -55,6 +55,9 @@ public class MainMenuManager : MonoBehaviour
         if (sfxAudio.volume != GameSettings.sfxVolume)
             sfxAudio.volume = GameSettings.sfxVolume;
 
+        float targetBrightness = 0.5f-0.5f*GameSettings.brightness;
+        if(panelImage.color.a != targetBrightness)
+            panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, targetBrightness);
     }
 
 
@@ -115,8 +118,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void UpdateBrightness(float value)
     {
-        GameSettings.brightness = -0.5f*brightnessSlider.value+0.5f;
-        panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, -0.5f*brightnessSlider.value+0.5f);
+        GameSettings.brightness = value;
     }
 
 
