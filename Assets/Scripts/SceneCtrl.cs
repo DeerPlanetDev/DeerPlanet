@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class SceneCtrl : MonoBehaviour
 {
-    GameObject au;
+    GameObject audio_;
     AudioSource player;
     Audio track;
     string previousName;
     private void Start() {
+        audio_ = GameObject.Find("Audio");
+        player = audio_.GetComponent<AudioSource>();
+        track = audio_.GetComponent<Audio>();
 
     }
     public void LevelSelection()
     {
+        player.clip = track.music[4];
+        player.Play();
         SceneManager.LoadScene("LevelSelection");
-
+        
     }
     public void MainMenu()
     {
@@ -28,7 +33,8 @@ public class SceneCtrl : MonoBehaviour
     }
     public void Level1()
     {
-        player.clip = track.music[2];
+        
+        player.clip = track.music[1];
         player.Play();
         SceneManager.LoadScene("FirstLevel");
     }
@@ -87,6 +93,8 @@ public class SceneCtrl : MonoBehaviour
     
     public void Return()
     {
+        player.clip = track.music[0];
+        player.Play();
         SceneManager.LoadScene(PlayerPrefs.GetString("previous"));
     }
 }
