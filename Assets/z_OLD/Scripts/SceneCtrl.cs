@@ -9,19 +9,11 @@ public class SceneCtrl : MonoBehaviour
     AudioSource player;
     Audio track;
     string previousName;
-<<<<<<< HEAD:Assets/z_OLD/Scripts/SceneCtrl.cs
-    private void Start()
-    {
-        audio_ = GameObject.Find("Audio");
-        player = audio_.GetComponent<AudioSource>();
-        track = audio_.GetComponent<Audio>();
-=======
     private void Start() {
         audio_ = GameObject.Find("Audio");
         player = audio_.GetComponent<AudioSource>();
         track = audio_.GetComponent<Audio>();
 
->>>>>>> origin/Dev-Invierno-ServicioSocial:Assets/Scripts/SceneCtrl.cs
     }
     public void LevelSelection()
     {
