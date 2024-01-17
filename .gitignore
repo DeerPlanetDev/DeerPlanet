@@ -28,6 +28,10 @@ sysinfo.txt
 *.pidb
 .DS_Store
 
+#ignore .log and .meta files
+*.log
+*.meta
+
 ###
 # OS generated
 ###
