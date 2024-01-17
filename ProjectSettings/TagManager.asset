@@ -9,14 +9,15 @@ TagManager:
   - finish
   - Enemy1
   - Wall
+  - Collectable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Colliders
   - Water
   - UI
-  - 
+  - Player
   - 
   - StopMovement
   - 

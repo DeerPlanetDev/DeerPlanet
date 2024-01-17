@@ -27,13 +27,16 @@ public class MainMenuManager : MonoBehaviour
     [Header("Settings Ui")]
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
+    [SerializeField] Slider brightnessSlider;
+    [SerializeField] Image panelImage;
+    [SerializeField] GameObject brightnessPanel;
 
 
     void Awake()
     {
         musicSlider.value = GameSettings.musicVolume;
         sfxSlider.value = GameSettings.sfxVolume;
-
+        brightnessSlider.value = GameSettings.brightness;
     }
 
     // Start is called before the first frame update
@@ -52,6 +55,9 @@ public class MainMenuManager : MonoBehaviour
         if (sfxAudio.volume != GameSettings.sfxVolume)
             sfxAudio.volume = GameSettings.sfxVolume;
 
+        float targetBrightness = 0.8f-0.8f*GameSettings.brightness;
+        if(panelImage.color.a != targetBrightness)
+            panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, targetBrightness);
     }
 
 
@@ -59,8 +65,9 @@ public class MainMenuManager : MonoBehaviour
     {
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
-           
             GameObject ui = canvas.transform.GetChild(i).transform.gameObject;
+            if (ui == brightnessPanel)
+                continue; // Skip the brightness panel
             if (i == uiIndex)
                 ui.SetActive(true);
             else
@@ -107,6 +114,11 @@ public class MainMenuManager : MonoBehaviour
     public void UpdateMusicVolume(float value)
     {
         GameSettings.musicVolume = value;
+    }
+
+    public void UpdateBrightness(float value)
+    {
+        GameSettings.brightness = value;
     }
 
 
