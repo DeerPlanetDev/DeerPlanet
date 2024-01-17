@@ -11,11 +11,17 @@ public class LevelSelection : MonoBehaviour
     public GameObject[] stars; //Star gameobject
     public Sprite starSprite; //Filled star sprite
     public int star_num = 0;
-    
+    GameObject audio_;
+    AudioSource player;
+    Audio track;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio_ = GameObject.Find("Audio");
+        player = audio_.GetComponent<AudioSource>();
+        track = audio_.GetComponent<Audio>();
+
     }
 
     // Update is called once per frame
@@ -63,6 +69,8 @@ public class LevelSelection : MonoBehaviour
     {
         if(unlocked)
         {
+            player.clip = track.music[1];
+            player.Play();
             SceneManager.LoadScene(_levelName);
         }
     }

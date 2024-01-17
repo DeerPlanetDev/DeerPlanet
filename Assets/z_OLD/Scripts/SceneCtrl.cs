@@ -9,44 +9,40 @@ public class SceneCtrl : MonoBehaviour
     AudioSource player;
     Audio track;
     string previousName;
+<<<<<<< HEAD:Assets/z_OLD/Scripts/SceneCtrl.cs
     private void Start()
     {
         audio_ = GameObject.Find("Audio");
         player = audio_.GetComponent<AudioSource>();
         track = audio_.GetComponent<Audio>();
+=======
+    private void Start() {
+        audio_ = GameObject.Find("Audio");
+        player = audio_.GetComponent<AudioSource>();
+        track = audio_.GetComponent<Audio>();
+
+>>>>>>> origin/Dev-Invierno-ServicioSocial:Assets/Scripts/SceneCtrl.cs
     }
     public void LevelSelection()
     {
-        if (player.clip != track.music[4])
-        {
-            player.clip = track.music[4];
-            player.Play();
-        }
-        // SceneManager.LoadScene("SeleccionNiveles");
+        player.clip = track.music[4];
+        player.Play();
         SceneManager.LoadScene("LevelSelection");
+        
     }
     public void MainMenu()
     {
-        if (player.clip != track.music[4])
-        {
-            player.clip = track.music[4];
-            player.Play();
-        }
         SceneManager.LoadScene("MainMenu");
     }
     public void AjustesMenu()
     {
         PlayerPrefs.SetString("previous", SceneManager.GetActiveScene().name);
-        // if (player.clip != track.music[4])
-        // {
-        //     player.clip = track.music[4];
-        //     player.Play();
-        // }
         SceneManager.LoadScene("Ajustes");
     }
     public void Level1()
     {
-        player.clip = track.music[2];
+        
+        player.clip = track.music[1];
         player.Play();
         SceneManager.LoadScene("FirstLevel");
     }
@@ -105,6 +101,8 @@ public class SceneCtrl : MonoBehaviour
 
     public void Return()
     {
+        player.clip = track.music[0];
+        player.Play();
         SceneManager.LoadScene(PlayerPrefs.GetString("previous"));
     }
 }
