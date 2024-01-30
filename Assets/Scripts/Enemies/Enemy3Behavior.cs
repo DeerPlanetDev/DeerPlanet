@@ -17,7 +17,7 @@ public class Enemy3Behavior : MonoBehaviour
 
 
     Animator animator;
-    bool detectedPlayer = false;
+    //bool detectedPlayer = false;
     Vector2 playerDirection = new Vector2(0, 0);
 
     //Para el daño
