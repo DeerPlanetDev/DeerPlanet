@@ -49,7 +49,7 @@ public class Score : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "TenthLevel")
         {
-            startMinutes = 5;
+            startMinutes = 8;
         }
         scoreText.text = "SCORE  " + score.ToString();
         BPText.text = "BIOPLASTICS  " + bioPlastics.ToString();
