@@ -14,13 +14,16 @@ public class FinalEnemyBehavior : MonoBehaviour
     [Header("Values")]
     [SerializeField] float speed = 1.0f;
     [SerializeField] int detectionRange = 10;
+    [SerializeField] float obstacleDuration = 2f;
     //Consecuencias al tocar el enemigo
     [SerializeField] int damage = -50;
     [SerializeField] int notScore = -1;
+    bool obstacleActive = false;
 
     [Header("References")]
     [SerializeField] LayerMask playerLayer; //Nos permitira detectar al jugador
-    [SerializeField] LayerMask ColliderLayer;
+    [SerializeField] LayerMask colliderLayer; //Para cortar el paso
+    [SerializeField] GameObject obstaclePrefab;
 
 
     Vector2 playerDirection = new Vector2 (0, 0); //Guardara la ubicación del jugador
@@ -48,6 +51,7 @@ public class FinalEnemyBehavior : MonoBehaviour
             }
         }
 
+        //Movimiento del enemigo
         if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
         {
             StartCoroutine(MoveAfterTime());
@@ -57,10 +61,49 @@ public class FinalEnemyBehavior : MonoBehaviour
         {
             AlignToNearestTile();
         }
+
+        //Obstaculo
+        if(playerDirection.magnitude != 0)
+        {
+            PlaceSign();
+        }
     }
 
 
-    //-----------------------------------------------------------   FUNCIONES   -----------------------------------
+    //-----------------------------------------------------------   FUNCIONES PARA LOS OBSTACULOS  -----------------------------------
+
+    void PlaceSign()
+    {
+        if (!obstacleActive)
+        {
+            Vector3 signPos = transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
+            if (Physics2D.OverlapCircle(signPos, 0.1f, playerLayer + colliderLayer) == null)
+            {
+                obstacleActive = true;
+                GameObject obstacle = Instantiate(obstaclePrefab, signPos, Quaternion.identity);
+                AlignPointToGrid(obstacle.transform);
+                Destroy(obstacle, obstacleDuration);
+                Invoke("ResetSign", obstacleDuration);
+            }
+        }
+    }
+
+    void AlignPointToGrid(Transform point)
+    {
+        float nearestMultipleX = Mathf.FloorToInt(point.position.x) + 0.5f;
+        float nearestMultipleY = Mathf.FloorToInt(point.position.y) + 0.5f;
+        Vector3 newPosition = new Vector3(nearestMultipleX, nearestMultipleY, point.position.z);
+        point.position = newPosition;
+    }
+
+    void ResetSign()
+    {
+        obstacleActive = false;
+    }
+
+
+    //---------------------------------------------------------     FUNCIONES PARA EL ENEMIGO   -------------------------------------------------------
+
     IEnumerator MoveAfterTime()
     {
         yield return new WaitForSeconds(0.3f);

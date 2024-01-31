@@ -444,16 +444,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc47c94c360ff9746bf4a2a94d536b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   detectionRange: 10
+  obstacleDuration: 2
   damage: -50
   notScore: -1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  ColliderLayer:
+  colliderLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  obstaclePrefab: {fileID: 3061726908021871295, guid: 6bc5a9b4cb86f3b41a5bbd4a2f695590, type: 3}
 --- !u!1001 &1836971503
 PrefabInstance:
   m_ObjectHideFlags: 0
