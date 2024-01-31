@@ -76,12 +76,15 @@ public class FinalEnemyBehavior : MonoBehaviour
     {
         if (!obstacleActive)
         {
-            Vector3 signPos = transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
-            if (Physics2D.OverlapCircle(signPos, 0.1f, playerLayer + colliderLayer) == null)
+            //Se calcula la posición del obstáculo basándose en la posición actual del objeto y la dirección del jugador
+            Vector3 obstaclePos = transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
+            //Se verifican si hay otros objetos en las capas especificadas dentro de un radio de 0.1f centrado en ObstaclePos
+            if (Physics2D.OverlapCircle(obstaclePos, 0.1f, playerLayer + colliderLayer) == null)
             {
                 obstacleActive = true;
-                GameObject obstacle = Instantiate(obstaclePrefab, signPos, Quaternion.identity);
-                AlignPointToGrid(obstacle.transform);
+                GameObject obstacle = Instantiate(obstaclePrefab, obstaclePos, Quaternion.identity); //Se crea la instancia del prefab
+                AlignPointToGrid(obstacle.transform); //Alineamos el obstaculo con la cadricula
+                //Destruimos el objeto despues del tiempo especificado
                 Destroy(obstacle, obstacleDuration);
                 Invoke("ResetSign", obstacleDuration);
             }
