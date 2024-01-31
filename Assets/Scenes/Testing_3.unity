@@ -378,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224207570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 4.5, z: 0}
+  m_LocalPosition: {x: -2.5, y: 2.5, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 344529418}
@@ -445,12 +445,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  detectionRange: 50
+  detectionRange: 10
+  damage: -50
+  notScore: -1
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  damage: -50
-  notScore: -1
+  ColliderLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1836971503
 PrefabInstance:
   m_ObjectHideFlags: 0

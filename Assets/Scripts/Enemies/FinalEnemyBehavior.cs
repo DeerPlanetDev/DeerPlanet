@@ -11,30 +11,26 @@ Este es el script que esta usando el enemigo final
 public class FinalEnemyBehavior : MonoBehaviour
 {
 
+    [Header("Values")]
     [SerializeField] float speed = 1.0f;
-    [SerializeField] int detectionRange = 50;
-    [SerializeField] LayerMask playerLayer; //Nos permitira detectar al jugador
-    Vector2 playerDirection = new Vector2 (0, 0); //Guardara la ubicación del jugador
-
+    [SerializeField] int detectionRange = 10;
     //Consecuencias al tocar el enemigo
     [SerializeField] int damage = -50;
     [SerializeField] int notScore = -1;
 
+    [Header("References")]
+    [SerializeField] LayerMask playerLayer; //Nos permitira detectar al jugador
+    [SerializeField] LayerMask ColliderLayer;
 
+
+    Vector2 playerDirection = new Vector2 (0, 0); //Guardara la ubicación del jugador
+
+    
+
+    //---------------------------------------------------------------------------------
     private void Start()
     {
         AlignToNearestTile();
-    }
-
-
-    //Alineamos al enemigo en la casilla en la que se encuentra
-    void AlignToNearestTile()
-    {
-        //Redondeamos la ubicación acutal del objeto y ajustamos con la cuadricula
-        float nearX = Mathf.FloorToInt(transform.position.x) + 0.5f;
-        float nearY = Mathf.FloorToInt(transform.position.y) + 0.5f;
-        Vector2 newPosition = new Vector2(nearX, nearY);
-        transform.position = Vector2.Lerp(transform.position, newPosition, Time.deltaTime);
     }
 
     void FixedUpdate()
@@ -63,14 +59,26 @@ public class FinalEnemyBehavior : MonoBehaviour
         }
     }
 
+
+    //-----------------------------------------------------------   FUNCIONES   -----------------------------------
     IEnumerator MoveAfterTime()
     {
         yield return new WaitForSeconds(0.3f);
         transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
     }
 
+    //Alineamos al enemigo en la casilla en la que se encuentra
+    void AlignToNearestTile()
+    {
+        //Redondeamos la ubicación acutal del objeto y ajustamos con la cuadricula
+        float nearX = Mathf.FloorToInt(transform.position.x) + 0.5f;
+        float nearY = Mathf.FloorToInt(transform.position.y) + 0.5f;
+        Vector2 newPosition = new Vector2(nearX, nearY);
+        transform.position = Vector2.Lerp(transform.position, newPosition, Time.deltaTime);
+    }
 
-    //Efectos de tocar el enemigo
+
+    //------------------------------------------    Efectos de tocar el enemigo     -------------------------------------------
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Entraron en contacto?
