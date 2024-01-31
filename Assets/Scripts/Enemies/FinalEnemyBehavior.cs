@@ -65,26 +65,26 @@ public class FinalEnemyBehavior : MonoBehaviour
         //Obstaculo
         if(playerDirection.magnitude != 0)
         {
-            PlaceSign();
+            PlaceObstacle();
         }
     }
 
 
     //-----------------------------------------------------------   FUNCIONES PARA LOS OBSTACULOS  -----------------------------------
 
-    void PlaceSign()
+    void PlaceObstacle()
     {
         if (!obstacleActive)
         {
-            //Se calcula la posición del obstáculo basándose en la posición actual del objeto y la dirección del jugador
-            Vector3 obstaclePos = transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
-            //Se verifican si hay otros objetos en las capas especificadas dentro de un radio de 0.1f centrado en ObstaclePos
+            // Se calcula la posición del obstáculo basándose en la posición actual del jugador y la dirección del jugador
+            Vector3 obstaclePos = GameObject.FindWithTag("Player").transform.position + new Vector3(playerDirection.x, playerDirection.y, 0f);
+            // Se verifica si hay otros objetos en las capas especificadas dentro de un radio de 0.1f centrado en ObstaclePos
             if (Physics2D.OverlapCircle(obstaclePos, 0.1f, playerLayer + colliderLayer) == null)
             {
                 obstacleActive = true;
-                GameObject obstacle = Instantiate(obstaclePrefab, obstaclePos, Quaternion.identity); //Se crea la instancia del prefab
-                AlignPointToGrid(obstacle.transform); //Alineamos el obstaculo con la cadricula
-                //Destruimos el objeto despues del tiempo especificado
+                GameObject obstacle = Instantiate(obstaclePrefab, obstaclePos, Quaternion.identity); // Se crea la instancia del prefab
+                AlignPointToGrid(obstacle.transform); // Alineamos el obstáculo con la cuadrícula
+                                                      // Destruimos el objeto después del tiempo especificado
                 Destroy(obstacle, obstacleDuration);
                 Invoke("ResetSign", obstacleDuration);
             }

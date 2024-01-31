@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc47c94c360ff9746bf4a2a94d536b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   detectionRange: 10
   obstacleDuration: 2
   damage: -50
@@ -882,6 +882,10 @@ PrefabInstance:
     - target: {fileID: 7783374644210074478, guid: f4a103479bffebe4499f173c64870d43, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783374644755696926, guid: f4a103479bffebe4499f173c64870d43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4a103479bffebe4499f173c64870d43, type: 3}
