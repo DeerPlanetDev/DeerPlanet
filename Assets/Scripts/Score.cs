@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 
 public class Score : MonoBehaviour
@@ -46,6 +47,10 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneManager.GetActiveScene().name == "TenthLevel")
+        {
+            startMinutes = 5;
+        }
         scoreText.text = "SCORE  " + score.ToString();
         BPText.text = "BIOPLASTICS  " + bioPlastics.ToString();
         //Debug.Log(collectibles.transform.childCount);
