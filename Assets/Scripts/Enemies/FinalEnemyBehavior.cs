@@ -21,6 +21,12 @@ public class FinalEnemyBehavior : MonoBehaviour
     [SerializeField] int notScore = -1;
 
 
+    private void Start()
+    {
+        AlignToNearestTile();
+    }
+
+
     //Alineamos al enemigo en la casilla en la que se encuentra
     void AlignToNearestTile()
     {
@@ -31,11 +37,11 @@ public class FinalEnemyBehavior : MonoBehaviour
         transform.position = Vector2.Lerp(transform.position, newPosition, Time.deltaTime);
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        foreach(Vector2 dir in new Vector2[] {Vector2.down, Vector2.up, Vector2.left, Vector2.right }) //El arreglo de vectores que nos permitra mover nuestro objeto
+        foreach (Vector2 dir in new Vector2[] { Vector2.down, Vector2.up, Vector2.left, Vector2.right }) //El arreglo de vectores que nos permitra mover nuestro objeto
         {
-            if(Physics2D.Raycast(transform.position, dir,detectionRange,playerLayer).collider != null)
+            if (Physics2D.Raycast(transform.position, dir, detectionRange, playerLayer).collider != null)
             {
                 playerDirection = dir;
                 break;
@@ -44,12 +50,23 @@ public class FinalEnemyBehavior : MonoBehaviour
             {
                 playerDirection = Vector2.zero;
             }
-
-            if(playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
-            {
-                transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
-            }
         }
+
+        if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
+        {
+            StartCoroutine(MoveAfterTime());
+            
+        }
+        else
+        {
+            AlignToNearestTile();
+        }
+    }
+
+    IEnumerator MoveAfterTime()
+    {
+        yield return new WaitForSeconds(0.3f);
+        transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
     }
 
 
