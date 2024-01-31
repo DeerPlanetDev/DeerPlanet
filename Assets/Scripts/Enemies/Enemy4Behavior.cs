@@ -24,7 +24,7 @@ public class Enemy4Behavior : MonoBehaviour
     int numOfpatrolPoints;
 
     //En caso de realizar daño necesita
-    //[SerializeField] AudioClip damageSfx; //Sonido ------------------------ AGREGAR SONIDO AL UNIR RAMA DE ENEMIGOS 1 Y 2
+    [SerializeField] AudioClip damageSfx; //Sonido
     [SerializeField] int damage = -30; //Daño realizado
     [SerializeField] int notScore = -1; //Puntaje a restar
 
@@ -113,7 +113,7 @@ public class Enemy4Behavior : MonoBehaviour
             if (other.gameObject.CompareTag("Player"))
             {
                 //Hacemos que suene el sonido de daño
-                //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
+                other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
                 //Modiicamos la salud del jugador
                 PlayerHealth.instance.ModifyHP(damage);
                 //Modificamos el puntaje del jugador

@@ -21,7 +21,7 @@ public class Enemy3Behavior : MonoBehaviour
     Vector2 playerDirection = new Vector2(0, 0);
 
     //Para el daño
-    //[SerializeField] AudioClip damageSfx; //Sonido ------------------------ AGREGAR SONIDO AL UNIR RAMA DE ENEMIGOS 1 Y 2
+    [SerializeField] AudioClip damageSfx; //Sonido
     [SerializeField] int damage = -30; //Daño realizado
     [SerializeField] int notScore = -1; //Puntaje a restar
 
@@ -92,7 +92,7 @@ public class Enemy3Behavior : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //Sonido de daño
-            //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
             //Modiicamos la salud del jugador
             PlayerHealth.instance.ModifyHP(damage);
             //Modificamos el puntaje del jugador

@@ -24,6 +24,7 @@ public class FinalEnemyBehavior : MonoBehaviour
     [SerializeField] LayerMask playerLayer; //Nos permitira detectar al jugador
     [SerializeField] LayerMask colliderLayer; //Para cortar el paso
     [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] AudioClip damageSfx;
 
 
     Vector2 playerDirection = new Vector2 (0, 0); //Guardara la ubicación del jugador
@@ -130,6 +131,7 @@ public class FinalEnemyBehavior : MonoBehaviour
         //Entraron en contacto?
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
             PlayerHealth.instance.ModifyHP(damage); //Dañar a jugador
             LevelManager.instance.IncreaseScore(notScore, 0); //Reducir el puntaje
         }

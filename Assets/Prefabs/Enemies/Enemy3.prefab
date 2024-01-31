@@ -52,6 +52,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  damageSfx: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
   damage: -30
   notScore: -1
 --- !u!95 &494371959392403824

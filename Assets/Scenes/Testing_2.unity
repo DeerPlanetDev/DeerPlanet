@@ -869,6 +869,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1197457342247730458, guid: 1bae0e2732d1b4248a52fb52772d3a8e, type: 3}
+      propertyPath: damageSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
     - target: {fileID: 1197457342653507398, guid: 1bae0e2732d1b4248a52fb52772d3a8e, type: 3}
       propertyPath: m_Name
       value: Enemy4Container

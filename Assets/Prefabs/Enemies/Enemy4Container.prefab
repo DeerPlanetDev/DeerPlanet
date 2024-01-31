@@ -122,6 +122,7 @@ MonoBehaviour:
   detectionRange: 100
   signDuration: 5
   damagesPlayer: 0
+  damageSfx: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
   damage: -30
   notScore: -1
 --- !u!212 &1197457342247730460

@@ -308,7 +308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1224207571
 Transform:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
-  m_EdgeRadius: 0.1
+  m_EdgeRadius: 0
 --- !u!114 &1224207574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +395,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   obstaclePrefab: {fileID: 3061726908021871295, guid: 6bc5a9b4cb86f3b41a5bbd4a2f695590, type: 3}
+  damageSfx: {fileID: 8300000, guid: 0f4ab3424e5860e44addeaeea2cda286, type: 3}
 --- !u!1001 &1836971503
 PrefabInstance:
   m_ObjectHideFlags: 0
