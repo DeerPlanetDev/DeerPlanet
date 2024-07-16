@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2493546539158532880, guid: 2f45660a539fb70439594700261d2997, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.98
+      objectReference: {fileID: 0}
     - target: {fileID: 2493546540051449234, guid: 2f45660a539fb70439594700261d2997, type: 3}
       propertyPath: m_Name
       value: LevelManager
@@ -1162,6 +1166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6109461163632160513, guid: c4aef65fdf58ed640b2660c9634349aa, type: 3}
+      propertyPath: orthographic size
+      value: 4.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9153554682220453517, guid: c4aef65fdf58ed640b2660c9634349aa, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1643,8 +1651,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7783374643944126472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.26, y: 2.7472, z: 0}
-  m_LocalScale: {x: 0.90938145, y: 1.1373606, z: 0.9053977}
+  m_LocalPosition: {x: 3.0122, y: 2.914, z: 0}
+  m_LocalScale: {x: 1.5082513, y: 1.6151394, z: 0.9053977}
   m_Children: []
   m_Father: {fileID: 7783374645046569378}
   m_RootOrder: 2

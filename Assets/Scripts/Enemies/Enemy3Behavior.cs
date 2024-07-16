@@ -1,40 +1,28 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-/*-----------------------------------------------------------------------
-
-Este es el script que se esta usando con el enemigo 3------**
-
-------------------------------------------------------------------------*/
-
-public class Enemy3Behavior : MonoBehaviour
+public class Enemy3Behavior : Enemy
 {
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private int detectionRange = 100;
+    [SerializeField] private LayerMask playerLayer;
 
-    [SerializeField] float speed = 1.0f;
-    [SerializeField] int detectionRange = 100;
-    [SerializeField] LayerMask playerLayer;
+    private Animator animator;
+    private Vector2 playerDirection = Vector2.zero;
+    private bool isMoving = false;
 
-
-    Animator animator;
-    bool detectedPlayer = false;
-    Vector2 playerDirection = new Vector2(0, 0);
-
-    //Para el daño
-    //[SerializeField] AudioClip damageSfx; //Sonido ------------------------ AGREGAR SONIDO AL UNIR RAMA DE ENEMIGOS 1 Y 2
-    [SerializeField] int damage = -30; //Daño realizado
-    [SerializeField] int notScore = -1; //Puntaje a restar
-
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
-
         AlignToNearestTile();
+
+        // Initialize health and damage (you can adjust these values)
+        health = 80; // Example value
     }
 
-
-    //Alineamos con la posicion de la cuadricula
-    void AlignToNearestTile()
+    // Align to nearest tile
+    private void AlignToNearestTile()
     {
         float nearestMultipleX = Mathf.FloorToInt(transform.position.x) + 0.5f;
         float nearestMultipleY = Mathf.FloorToInt(transform.position.y) + 0.5f;
@@ -42,67 +30,64 @@ public class Enemy3Behavior : MonoBehaviour
         transform.position = Vector2.Lerp(transform.position, newPosition, Time.deltaTime);
     }
 
-
-    void FixedUpdate()
+    // Override the Move method from the base Enemy class
+    public override void Move()
     {
-
-        foreach (Vector2 dir in new Vector2[] { Vector2.down, Vector2.up, Vector2.left, Vector2.right })
+        if (!isMoving)
         {
-            if (Physics2D.Raycast(transform.position, dir, detectionRange, playerLayer).collider != null)
+            // Detect player within range
+            foreach (Vector2 dir in new Vector2[] { Vector2.down, Vector2.up, Vector2.left, Vector2.right })
             {
-                playerDirection = dir;
-                break;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, detectionRange, playerLayer);
+                if (hit.collider != null && hit.collider.CompareTag("Player"))
+                {
+                    playerDirection = dir;
+                    isMoving = true; // Start moving after detection
+                    StartCoroutine(MoveAfterAnim());
+                    break;
+                }
             }
-            else
-                playerDirection = Vector2.zero;
         }
-
-
-        if (playerDirection.magnitude > 0 && GameObject.FindWithTag("Player"))
-            StartCoroutine(MoveAfterAnim());
-        else
-            AlignToNearestTile();
 
         animator.SetInteger("Vertical", (int)playerDirection.y);
         animator.SetInteger("Horizontal", (int)playerDirection.x);
     }
 
-
-    //El enemigo se mueve despues de unos segundos --- anim de salto
-    IEnumerator MoveAfterAnim()
+    // Coroutine for movement animation
+    private IEnumerator MoveAfterAnim()
     {
-        yield return new WaitForSeconds(0.5f);
-        transform.position = Vector2.MoveTowards(transform.position, GameObject.FindWithTag("Player").transform.position, Time.deltaTime * speed);
+        yield return new WaitForSeconds(0.5f); // Wait for animation
+
+        while (isMoving) // Continue moving until stopped
+        {
+            transform.position = Vector2.MoveTowards(transform.position, transform.position + (Vector3)playerDirection, Time.deltaTime * speed);
+            yield return null;
+        }
+
+        // Reset playerDirection and isMoving after stopping
+        playerDirection = Vector2.zero;
+        isMoving = false;
     }
 
-
-    //Para que no atraviese las paredes
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Colliders"))
-    //    {
-    //        playerDirection = Vector2.zero;
-    //    }
-    //}
-
-    //Reducir la vida del jugador y su puntaje cuando entre en contacto con el enemigo
-    void OnTriggerEnter2D(Collider2D other)
+    // Trigger to damage player
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        //Comparamaos si entraron en contacto
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //Sonido de daño
-            //other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); ------------------ QUITAR COMENTARIO AL UNIR RAMA
-            //Modiicamos la salud del jugador
-            PlayerHealth.instance.ModifyHP(damage);
-            //Modificamos el puntaje del jugador
-            LevelManager.instance.IncreaseScore(notScore, 0); //Solo modificaremos el puntaje (primer parametro)
-        }
+        
 
         if (other.gameObject.CompareTag("Wall"))
         {
-            playerDirection = Vector2.zero;
+            isMoving = false; // Stop when hitting a wall
         }
     }
 
+    // Override Die method
+    protected override void Die()
+    {
+        // Stop movement when the enemy dies
+        isMoving = false;
+        StopAllCoroutines();
+
+        // Call the base class Die() to handle death animation and destruction
+        base.Die();
+    }
 }
