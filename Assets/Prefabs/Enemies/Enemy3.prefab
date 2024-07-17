@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494371959392403826}
-  - component: {fileID: 494371959392403827}
   - component: {fileID: 494371959392403824}
   - component: {fileID: 494371959392403825}
   - component: {fileID: 494371959392403823}
   - component: {fileID: 494371959392403822}
+  - component: {fileID: 2842251941659307417}
+  - component: {fileID: 4629536220071411537}
+  - component: {fileID: 1625196079}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -35,25 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &494371959392403827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494371959392403828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96def1be6b051f2499d73b49893588c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  detectionRange: 5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damage: -30
-  notScore: -1
 --- !u!95 &494371959392403824
 Animator:
   serializedVersion: 3
@@ -161,3 +144,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2842251941659307417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494371959392403828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61441f3d316a9b54082b69630a808576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 2
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 2
+  signPlacer: {fileID: 0}
+--- !u!114 &4629536220071411537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494371959392403828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43bce020ba6850941a582c3927f6012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  minDistance: 3
+  speed: 2
+--- !u!114 &1625196079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494371959392403828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb745a4ed64ee549954172333b4c4a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 50
+  damageCooldown: 1

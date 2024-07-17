@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
 
     // Event for notifying the EnemyManager when the enemy dies
     public event Action<Enemy> OnDeath;
+  
 
     protected Animator animator;
 
@@ -15,6 +16,8 @@ public abstract class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         // Other common initialization logic if needed
+        
+
     }
 
     public virtual void TakeDamage(int damageAmount)
@@ -25,7 +28,6 @@ public abstract class Enemy : MonoBehaviour
             Die();
         }
     }
-
     protected virtual void Die()
     {
         // Optional: Trigger death animation if you have one

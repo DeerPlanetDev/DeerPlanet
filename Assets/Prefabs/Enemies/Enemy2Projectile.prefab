@@ -46,11 +46,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500da600a7a332e43a38e48d0d0dfe08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
   movementSpeed: 2
   animator: {fileID: 4359691687005431297}
   damageSfx: {fileID: 8300000, guid: 4202d5387e31f434c815264f300058ed, type: 3}
   damage: -15
+  explosionLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  explosionPrefab: {fileID: 0}
+  lifetime: 2
 --- !u!212 &4848943817419979476
 SpriteRenderer:
   m_ObjectHideFlags: 0

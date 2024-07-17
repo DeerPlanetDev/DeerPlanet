@@ -1,84 +1,93 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    //Viene del script de Enemy2Behaviour, nos indica la direccion del proyectil
-    public Vector3 direction;
+    private Vector3 direction;
     public float movementSpeed = 2.5f;
     public Animator animator;
-    //Agregamos un efecto de sonido para indicar al jugador el daño recibido
     [SerializeField] AudioClip damageSfx;
-    //Una variable para indicar el daño que se realizara al jugador
     [SerializeField] int damage = -15;
+    [SerializeField] private LayerMask explosionLayerMask;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private float lifetime = 5f; 
 
-    void Start()
+    public void SetDirection(Vector3 newDirection)
     {
-        StartCoroutine(moveProjectile());
+        direction = newDirection;
     }
 
-    IEnumerator moveProjectile()
+    IEnumerator TrackAndMoveProjectile()
     {
-        while (true)
+        float timeElapsed = 0f;
+        while (timeElapsed < lifetime)
         {
-            while (direction == null)
+            // Ensure the direction is set
+            if (direction != Vector3.zero) 
             {
-                yield return null;
+                // Move the projectile in the specified direction
+                transform.position += direction * movementSpeed * Time.deltaTime;
             }
-            //Se mueve el proyectil en la direccion especificada por el enemigo
-            transform.position += direction * movementSpeed * Time.deltaTime;
+
+            // Check for collisions with the explosion layer
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, movementSpeed * Time.deltaTime, explosionLayerMask);
+            if (hit.collider != null)
+            {
+                Explode();
+                yield break;
+            }
+
+            timeElapsed += Time.deltaTime;
             yield return null;
         }
+
+        // Explode after the lifetime expires
+        Explode(); 
+    }
+
+    private void Explode()
+    {
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        // (Optional) Play explosion sound effect
+        // ...
+
+        Destroy(gameObject);
     }
 
     IEnumerator destroyProjectile(Collider2D other)
     {
-        //Comparamos si el proyectil ha colisionado con el jugador
         if (other.CompareTag("Player"))
         {
-            //VidaJugador.instance.TakeDamage(20); -------------- NO SE ESTA USANDO ESTE SRIPT
-            //Indicamos el daño que recibiar el jugador
             PlayerHealth.instance.ModifyHP(damage);
-            //Hacemos que suene el sonido de daño
             other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
+            Debug.Log("Impacted the player");
 
-            //Esto es un test para ver que impacta
-            Debug.Log("Impacte al jugador");
-
-            //Se ejecuta la siguiente animacion
             animator.SetBool("crashed", true);
             yield return new WaitForSeconds(0.3f);
-            Destroy(this.gameObject); //animar destrucción
+            Destroy(this.gameObject);
         }
-        //El proyectil se destruye si choca con el muro
         else if (other.CompareTag("Wall"))
         {
+            Debug.Log("Impacted a wall");
+            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx);
 
-            //Esto es un test para ver que impacta
-            Debug.Log("Impacte una pared");
-
-            //Hacemos que suene el sonido de daño
-            other.gameObject.GetComponent<AudioSource>().PlayOneShot(damageSfx); //No eliminar audioSource
-
-
-            //Se ejecuta la siguiente animacion
             animator.SetBool("crashed", true);
             yield return new WaitForSeconds(0.3f);
-            Destroy(this.gameObject); //animar destrucción
+            Destroy(this.gameObject);
         }
     }
-    //Accion a tomar cuando el proyectil colisione
+
     void OnTriggerEnter2D(Collider2D other)
     {
-
         StartCoroutine(destroyProjectile(other));
     }
 
-
-
-    void Update()
+    void Start()
     {
-
+        StartCoroutine(TrackAndMoveProjectile());
     }
 }
