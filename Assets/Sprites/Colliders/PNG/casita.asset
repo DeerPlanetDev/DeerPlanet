@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: casita
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: b18a35c69185e9140bd643e5e267e4c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32b2a47752321fa488b7713ad7d97679, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
